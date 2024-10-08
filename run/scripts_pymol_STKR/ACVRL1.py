@@ -100,15 +100,15 @@ cmd.show('sticks', 'R67Q')
 cmd.label('''byca(R67Q)''', 'oneletter+resi')
 cmd.color('lightmagenta', 'resi 67')
 
-cmd.select('W420*', 'resi 420')
-cmd.show('sticks', 'W420*')
-cmd.label('''byca(W420*)''', 'oneletter+resi')
-cmd.color('lightmagenta', 'resi 420')
-
 cmd.select('W406*', 'resi 406')
 cmd.show('sticks', 'W406*')
 cmd.label('''byca(W406*)''', 'oneletter+resi')
 cmd.color('lightmagenta', 'resi 406')
+
+cmd.select('W420*', 'resi 420')
+cmd.show('sticks', 'W420*')
+cmd.label('''byca(W420*)''', 'oneletter+resi')
+cmd.color('lightmagenta', 'resi 420')
 
 cmd.select('C443*', 'resi 443')
 cmd.show('sticks', 'C443*')
