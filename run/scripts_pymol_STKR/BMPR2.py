@@ -40,15 +40,15 @@ cmd.show('sticks', 'Y214*')
 cmd.label('''byca(Y214*)''', 'oneletter+resi')
 cmd.color('lightmagenta', 'resi 214')
 
-cmd.select('C420Y', 'resi 420')
-cmd.show('sticks', 'C420Y')
-cmd.label('''byca(C420Y)''', 'oneletter+resi')
-cmd.color('lightmagenta', 'resi 420')
-
 cmd.select('R147*', 'resi 147')
 cmd.show('sticks', 'R147*')
 cmd.label('''byca(R147*)''', 'oneletter+resi')
 cmd.color('lightmagenta', 'resi 147')
+
+cmd.select('C420Y', 'resi 420')
+cmd.show('sticks', 'C420Y')
+cmd.label('''byca(C420Y)''', 'oneletter+resi')
+cmd.color('lightmagenta', 'resi 420')
 
 cmd.select('R491W', 'resi 491')
 cmd.show('sticks', 'R491W')

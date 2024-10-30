@@ -439,3 +439,14 @@ data/ICGC/icgc-dataset-1693249263060/copy_number_somatic_mutation.tsv.gz
 data/ICGC/icgc-dataset-1693249263060/copy_number_somatic_mutation.tsv
 data/ICGC/icgc-dataset-1693249263060/.DS_Store
 src/gene_NBK1116.tar.gz
+*.tsv
+data/NCBI/.DS_Store
+data/NCBI/ncbi_dataset.zip
+data/NCBI/ncbi_dataset/.DS_Store
+data/NCBI/ncbi_dataset/ncbi_dataset/.DS_Store
+data/NCBI/ncbi_dataset/ncbi_dataset/data/.DS_Store
+data/NCBI/ncbi_dataset/ncbi_dataset/data/assembly_data_report.jsonl
+data/NCBI/ncbi_dataset/ncbi_dataset/data/dataset_catalog.json
+data/NCBI/ncbi_dataset/ncbi_dataset/data/GCA_000001405.29/GCA_000001405.29_GRCh38.p14_genomic.fna
+data/NCBI/ncbi_dataset/ncbi_dataset/data/GCF_000001405.40/GCF_000001405.40_GRCh38.p14_genomic.fna
+data/NCBI/ncbi_dataset/README.md
