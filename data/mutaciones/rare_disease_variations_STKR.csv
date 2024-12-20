@@ -1259,7 +1259,7 @@ BMPR2,"Pulmonary hypertension, primary, 1",C84R,missense variant,425742,Pathogen
 BMPR2,"Pulmonary hypertension, primary, 1",G83E,missense variant,425741,Pathogenic,PPH1
 BMPR2,"Pulmonary hypertension, primary, 1",G83R,missense variant,425729,Pathogenic,PPH1
 BMPR2,"Pulmonary hypertension, primary, 1",G83fs,frameshift variant,425728,Pathogenic,PPH1
-BMPR2,"Pulmonary hypertension, primary, dexfenfluramine-associated",Q82H,missense variant,425727,Pathogenic,PPH1-associated-dexfenfluramine
+BMPR2,"Pulmonary hypertension, primary, dexfenfluramine-associated",Q82H,missense variant,425727,Pathogenic,PPH1-dexfenfluramine
 BMPR2,"Pulmonary hypertension, primary, 1",Q82*,nonsense,425726,Pathogenic,PPH1
 BMPR2,Pulmonary arterial hypertension,Q82*,nonsense,425726,Pathogenic,PAH
 BMPR2,Pulmonary arterial hypertension,K81*,nonsense,425725,Likely pathogenic,PAH

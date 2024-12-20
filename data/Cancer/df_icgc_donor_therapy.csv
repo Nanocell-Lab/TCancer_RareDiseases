@@ -1,0 +1,53 @@
+icgc_donor_id,project_code,submitted_donor_id,first_therapy_type,first_therapy_therapeutic_intent,first_therapy_start_interval,first_therapy_duration,first_therapy_response,second_therapy_type,second_therapy_therapeutic_intent,second_therapy_start_interval,second_therapy_duration,second_therapy_response,other_therapy,other_therapy_response,tipo_cancer
+DO220855,MELA-AU,MELA-0043,surgery,curative,1404.0,1.0,unknown,radiation therapy,adjuvant,1459.0,30.0,unknown,,,Piel
+DO220866,MELA-AU,MELA-0061,surgery,curative,84.0,1.0,complete response,surgery,curative,775.0,1.0,unknown,,,Piel
+DO220875,MELA-AU,MELA-0161,surgery,curative,17.0,1.0,unknown,surgery,curative,2264.0,1.0,unknown,,,Piel
+DO220877,MELA-AU,MELA-0167,surgery,curative,14.0,1.0,unknown,surgery,curative,32.0,1.0,unknown,,,Piel
+DO220886,MELA-AU,MELA-0184,surgery,curative,3615.0,1.0,unknown,surgery,curative,3829.0,1.0,unknown,,,Piel
+DO220891,MELA-AU,MELA-0193,surgery,curative,240.0,1.0,unknown,surgery,curative,580.0,1.0,unknown,,,Piel
+DO220898,MELA-AU,MELA-0213,surgery,curative,61.0,1.0,unknown,surgery,curative,93.0,1.0,unknown,,,Piel
+DO219881,SKCA-BR,ML_47,no treatment,not applicable,,,complete response,no treatment,not applicable,,,,,,Piel
+DO219873,SKCA-BR,ML_104,chemotherapy,palliative,1005.0,55.0,disease progression,chemotherapy,palliative,1060.0,21.0,disease progression,5,3.0,Piel
+DO228012,SKCA-BR,ML_60,no treatment,not applicable,13501.0,7.0,partial response,no treatment,not applicable,,,,,,Piel
+DO220901,MELA-AU,MELA-0228,surgery,curative,6841.0,1.0,unknown,surgery,curative,7961.0,1.0,unknown,,,Piel
+DO220902,MELA-AU,MELA-0229,surgery,curative,278.0,1.0,unknown,surgery,curative,453.0,1.0,unknown,,,Piel
+DO220908,MELA-AU,MELA-0237,surgery,curative,1857.0,1.0,unknown,surgery,curative,2310.0,1.0,unknown,,,Piel
+DO218912,SKCA-BR,ML_98,surgery,curative,177.0,1.0,complete response,chemotherapy,palliative,456.0,320.0,partial response,7,4.0,Piel
+DO218908,SKCA-BR,ML_96,radiation therapy,adjuvant,827.0,38.0,complete response,no treatment,not applicable,,,,,,Piel
+DO218863,SKCA-BR,ML_52,no treatment,not applicable,,,complete response,no treatment,not applicable,,,,,,Piel
+DO218850,SKCA-BR,ML_24,surgery,palliative,242.0,1.0,disease progression,surgery,palliative,448.0,1.0,disease progression,2,3.0,Piel
+DO45047,LINC-JP,HX16,no treatment,not applicable,,,,no treatment,not applicable,,,,,,Higado
+DO45075,LINC-JP,HX30,no treatment,not applicable,,,,no treatment,not applicable,,,,,,Higado
+DO27825,MALY-DE,4194891,other therapy,not applicable,4.0,111.0,complete response,no treatment,not applicable,,,,"chemotherapy,immunotherapy",complete response,Sangre
+DO27803,MALY-DE,4134005,other therapy,not applicable,3.0,139.0,partial response,no treatment,not applicable,,,,"chemotherapy,immunotherapy",partial response,Sangre
+DO27797,MALY-DE,4158726,other therapy,not applicable,13.0,169.0,complete response,no treatment,not applicable,,,,"chemotherapy,immunotherapy",complete response,Sangre
+DO27789,MALY-DE,4108101,other therapy,not applicable,7.0,124.0,partial response,no treatment,not applicable,,,,"chemotherapy,immunotherapy",partial response,Sangre
+DO230659,LAML-KR,2018_ETO_03,chemotherapy,curative,,106.0,complete response,no treatment,not applicable,,,unknown,,,Sangre
+DO52671,MALY-DE,4166151,other therapy,not applicable,0.0,136.0,unknown,no treatment,not applicable,,,,"chemotherapy,immunotherapy",therapy associated death,Sangre
+DO52674,MALY-DE,4199714,other therapy,not applicable,6.0,96.0,complete response,no treatment,not applicable,,,,"chemotherapy,radiation therapy,immunotherapy",complete response,Sangre
+DO52675,MALY-DE,4181460,other therapy,not applicable,4.0,130.0,complete response,no treatment,not applicable,,,,"chemotherapy,radiation therapy,immunotherapy",complete response,Sangre
+DO6350,CLLE-ES,1,chemotherapy,curative,,,unknown,other therapy,curative,,,unknown,mostly chemo and monoclonal antibody anti CD52,unknown,Sangre
+DO220821,BRCA-EU,CGP_donor_1187025,no treatment,not applicable,,,,no treatment,not applicable,,,,,,Seno 
+DO218828,BRCA-EU,CGP_donor_1337231,chemotherapy,adjuvant,61.0,140.0,unknown,radiation therapy,adjuvant,,38.0,unknown,,,Seno 
+DO227473,BRCA-FR,PI002,chemotherapy,curative,0.0,107.0,unknown,radiation therapy,curative,147.0,45.0,unknown,,,Seno 
+DO227854,BRCA-FR,PI061,chemotherapy,curative,0.0,105.0,unknown,radiation therapy,curative,133.0,41.0,unknown,,,Seno 
+DO35083,PACA-CA,PCSI_0103,chemotherapy,adjuvant,127.0,189.0,complete response,no treatment,not applicable,0.0,0.0,,,,Pancreas
+DO35230,PACA-CA,PCSI_0074,no treatment,not applicable,0.0,0.0,,no treatment,not applicable,0.0,0.0,,,,Pancreas
+DO35208,PACA-CA,PCSI_0009,no treatment,not applicable,0.0,0.0,,no treatment,not applicable,0.0,0.0,,,,Pancreas
+DO51549,PACA-CA,PCSI_0509,combined chemo+radiation therapy,adjuvant,102.0,151.0,complete response,no treatment,not applicable,0.0,0.0,,,,Pancreas
+DO51534,PACA-CA,PCSI_0302,chemotherapy,adjuvant,96.0,101.0,disease progression,no treatment,not applicable,0.0,0.0,,,,Pancreas
+DO51496,PACA-CA,PCSI_0354,no treatment,not applicable,0.0,0.0,,no treatment,not applicable,0.0,0.0,,,,Pancreas
+DO51499,PACA-CA,PCSI_0504,chemotherapy,palliative,68.0,84.0,stable disease,chemotherapy,palliative,173.0,34.0,unknown,,,Pancreas
+DO49418,PACA-CA,PCSI_0164,chemotherapy,adjuvant,554.0,183.0,complete response,chemotherapy,palliative,920.0,0.0,stable disease,,,Pancreas
+DO227531,PACA-CA,PCSI_0378,no treatment,not applicable,,,,no treatment,not applicable,,,,,,Pancreas
+DO227581,PACA-CA,PCSI_0474,no treatment,not applicable,,,,no treatment,not applicable,,,,,,Pancreas
+DO227736,PACA-CA,PCSI_0649,no treatment,not applicable,,,,no treatment,not applicable,,,,,,Pancreas
+DO35442,PACA-CA,PCSI_0083,combined chemo+radiation therapy,adjuvant,114.0,159.0,complete response,no treatment,not applicable,0.0,0.0,,,,Pancreas
+DO35406,PACA-CA,PCSI_0047,combined chemo+radiation therapy,adjuvant,64.0,0.0,unknown,no treatment,not applicable,0.0,0.0,,,,Pancreas
+DO35360,PACA-CA,PCSI_0096,chemotherapy,adjuvant,244.0,155.0,complete response,no treatment,not applicable,0.0,0.0,,,,Pancreas
+DO228083,EOPC-DE,EOPC-160,other therapy,not applicable,,,,other therapy,not applicable,,,,unknown,unknown,Prostata
+DO228696,EOPC-DE,EOPC-073,other therapy,not applicable,,,,other therapy,not applicable,,,,unknown,unknown,Prostata
+DO51085,PRAD-CA,CPCG0232,no treatment,not applicable,,,,no treatment,not applicable,,,,,,Prostata
+DO51139,PRAD-CA,CPCG0372,no treatment,not applicable,,,,no treatment,not applicable,,,,,,Prostata
+DO51126,PRAD-CA,CPCG0356,no treatment,not applicable,,,,no treatment,not applicable,,,,,,Prostata
+DO218075,ORCA-IN,OSCC-GB_011801,combined chemo+radiation therapy,adjuvant,128.0,39.0,complete response,no treatment,not applicable,,,,,,Cabeza
