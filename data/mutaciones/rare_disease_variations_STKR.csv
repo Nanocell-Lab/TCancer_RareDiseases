@@ -404,17 +404,17 @@ ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",E379K,missense variant,4
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",R200W,missense variant,429372,Likely pathogenic,HHT2
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",Q490*,nonsense,426040,Pathogenic,HHT2
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",K487T,missense variant,426039,Likely pathogenic,HHT2
-ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,R484fs,frameshift variant,426038,Pathogenic,PAH-related-HHT
+ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,R484fs,frameshift variant,426038,Pathogenic,PAH-HHT
 ACVRL1,"Pulmonary hypertension, primary, 1",R484G,missense variant,426037,Pathogenic/Likely pathogenic,PPH1
 ACVRL1,"Pulmonary arterial hypertension, 1",R484G,missense variant,426037,Pathogenic/Likely pathogenic,PAH1
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",R479P,missense variant,426036,Pathogenic,HHT2
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",R479Q,missense variant,426035,Pathogenic/Likely pathogenic,HHT2
 ACVRL1,"Pulmonary hypertension, primary, 1",A478D,missense variant,426034,Pathogenic,PPH1
-ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,G463fs,frameshift variant,426032,Pathogenic,PAH-related-HHT
+ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,G463fs,frameshift variant,426032,Pathogenic,PAH-HHT
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",S462*,nonsense,426031,Pathogenic,HHT2
-ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,D427V,missense variant,426029,Pathogenic,PAH-related-HHT
+ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,D427V,missense variant,426029,Pathogenic,PAH-HHT
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",P424T,missense variant,426028,Likely pathogenic,HHT2
-ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,W399L,missense variant,426027,Pathogenic,PAH-related-HHT
+ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,W399L,missense variant,426027,Pathogenic,PAH-HHT
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",W399R,missense variant,426026,Likely pathogenic,HHT2
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",L381P,missense variant,426025,Likely pathogenic,HHT2
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",Y375C,missense variant,426024,Pathogenic,HHT2
@@ -424,12 +424,12 @@ ACVRL1,"Pulmonary hypertension, primary, 1",H312Q,missense variant,426020,Pathog
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",L285F,missense variant,426018,Pathogenic/Likely pathogenic,HHT2
 ACVRL1,Hereditary hemorrhagic telangiectasia,L273P,missense variant,426017,Pathogenic/Likely pathogenic,HHT
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",L273P,missense variant,426017,Pathogenic/Likely pathogenic,HHT2
-ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,D263G,missense variant,426016,Pathogenic,PAH-related-HHT
-ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,R218P,missense variant,426015,Pathogenic,PAH-related-HHT
-ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,Q201R,missense variant,426014,Pathogenic,PAH-related-HHT
-ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,V198E,missense variant,426013,Pathogenic,PAH-related-HHT
+ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,D263G,missense variant,426016,Pathogenic,PAH-HHT
+ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,R218P,missense variant,426015,Pathogenic,PAH-HHT
+ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,Q201R,missense variant,426014,Pathogenic,PAH-HHT
+ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,V198E,missense variant,426013,Pathogenic,PAH-HHT
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",R67W,missense variant,426010,Pathogenic/Likely pathogenic,HHT2
-ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,L13fs,frameshift variant,426009,Pathogenic,PAH-related-HHT
+ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,L13fs,frameshift variant,426009,Pathogenic,PAH-HHT
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",Q446*,nonsense,419979,Pathogenic/Likely pathogenic,HHT2
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",R374Q,missense variant,411314,Pathogenic,HHT2
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",N335I,missense variant,411313,Likely pathogenic,HHT2
@@ -468,7 +468,7 @@ ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",T372fs,frameshift varian
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",C344Y,missense variant,8254,Pathogenic,HHT2
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",G211D,missense variant,8253,Pathogenic/Likely pathogenic,HHT2
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",R484W,missense variant,8252,Pathogenic,HHT2
-ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,R484W,missense variant,8252,Pathogenic,PAH-related-HHT
+ACVRL1,Pulmonary arterial hypertension related to hereditary hemorrhagic telangiectasia,R484W,missense variant,8252,Pathogenic,PAH-HHT
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",R411W,missense variant,8251,Pathogenic/Likely pathogenic,HHT2
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",D254del,inframe_deletion,8250,Pathogenic/Likely pathogenic,HHT2
 ACVRL1,"Telangiectasia, hereditary hemorrhagic, type 2",R374W,missense variant,8249,Pathogenic/Likely pathogenic,HHT2
@@ -1209,7 +1209,7 @@ BMPR2,"Pulmonary hypertension, primary, 1",Y214*,nonsense,425810,Pathogenic,PPH1
 BMPR2,Pulmonary arterial hypertension,K204fs,frameshift variant,425807,Pathogenic,PAH
 BMPR2,"Pulmonary hypertension, primary, 1",K204fs,frameshift variant,425807,Pathogenic,PPH1
 BMPR2,"Pulmonary hypertension, primary, 1",L203fs,frameshift variant,425806,Pathogenic,PPH1
-BMPR2,Pulmonary arterial hypertension associated with congenital heart disease,M186V,missense variant,425805,Pathogenic,PAH-associated-CHD
+BMPR2,Pulmonary arterial hypertension associated with congenital heart disease,M186V,missense variant,425805,Pathogenic,PAH-CHD
 BMPR2,"Pulmonary hypertension, primary, 1",H184fs,frameshift variant,425804,Pathogenic,PPH1
 BMPR2,"Pulmonary hypertension, primary, 1",G177fs,frameshift variant,425799,Pathogenic,PPH1
 BMPR2,"Pulmonary hypertension, primary, 1",Y172*,nonsense,425798,Pathogenic,PPH1
@@ -1241,7 +1241,7 @@ BMPR2,"Pulmonary hypertension, primary, 1",Y113*,nonsense,425761,Pathogenic,PPH1
 BMPR2,Primary pulmonary hypertension,Y113*,nonsense,425760,Pathogenic,PPH
 BMPR2,"Pulmonary hypertension, primary, 1",Y113C,missense variant,425759,Pathogenic,PPH1
 BMPR2,"Pulmonary hypertension, primary, 1",S107*,nonsense,425758,Pathogenic,PPH1
-BMPR2,Pulmonary arterial hypertension associated with congenital heart disease,T102A,missense variant,425756,Pathogenic,PAH-associated-CHD
+BMPR2,Pulmonary arterial hypertension associated with congenital heart disease,T102A,missense variant,425756,Pathogenic,PAH-CHD
 BMPR2,"Pulmonary hypertension, primary, 1",C99F,missense variant,425755,Pathogenic,PPH1
 BMPR2,Primary pulmonary hypertension,C99Y,missense variant,425754,Pathogenic,PPH
 BMPR2,"Pulmonary hypertension, primary, 1",E98*,nonsense,425753,Pathogenic,PPH1
@@ -1278,8 +1278,8 @@ BMPR2,"Pulmonary hypertension, primary, 1",C60Y,missense variant,425712,Pathogen
 BMPR2,"Pulmonary hypertension, primary, 1",C60G,missense variant,425711,Pathogenic,PPH1
 BMPR2,"Pulmonary hypertension, primary, 1",C60R,missense variant,425710,Pathogenic,PPH1
 BMPR2,"Pulmonary hypertension, primary, 1",T57fs,frameshift variant,425709,Pathogenic,PPH1
-BMPR2,Pulmonary arterial hypertension associated with congenital heart disease,G47D,missense variant,425707,Pathogenic,PAH-associated-CHD
-BMPR2,Pulmonary arterial hypertension associated with congenital heart disease,Q42R,missense variant,425706,Pathogenic,PAH-associated-CHD
+BMPR2,Pulmonary arterial hypertension associated with congenital heart disease,G47D,missense variant,425707,Pathogenic,PAH-CHD
+BMPR2,Pulmonary arterial hypertension associated with congenital heart disease,Q42R,missense variant,425706,Pathogenic,PAH-CHD
 BMPR2,"Pulmonary hypertension, primary, 1",Q42*,nonsense,425705,Pathogenic,PPH1
 BMPR2,"Pulmonary hypertension, primary, 1",P39fs,frameshift variant,425704,Pathogenic,PPH1
 BMPR2,"Pulmonary hypertension, primary, 1",A35fs,frameshift variant,425703,Pathogenic,PPH1
@@ -1321,7 +1321,7 @@ BMPR2,Primary pulmonary hypertension,C99R,missense variant,212816,Pathogenic,PPH
 BMPR2,Primary pulmonary hypertension,G63fs,frameshift variant,212814,Pathogenic,PPH
 BMPR2,Primary pulmonary hypertension,L476fs,frameshift variant,212813,Pathogenic,PPH
 BMPR2,Pulmonary venoocclusive disease 1,E195*,nonsense,39423,Pathogenic,PVOD1
-BMPR2,"Pulmonary hypertension, primary, 1, with hereditary hemorrhagic telangiectasia",Q433*,nonsense,8819,Pathogenic,PPH1-related-HHT
+BMPR2,"Pulmonary hypertension, primary, 1, with hereditary hemorrhagic telangiectasia",Q433*,nonsense,8819,Pathogenic,PPH1-HHT
 BMPR2,"Pulmonary hypertension, primary, 1",Q433*,nonsense,8819,Pathogenic,PPH1
 BMPR2,Pulmonary venoocclusive disease 1,Y40*,nonsense,8815,Pathogenic,PVOD1
 BMPR2,Pulmonary venoocclusive disease 1,P15fs,frameshift variant,8814,Pathogenic,PVOD1
