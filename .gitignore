@@ -672,3 +672,16 @@ ICGC/icgc-dataset-uterus/specimen.tsv.gz
 ICGC/icgc-dataset-uterus/structural_somatic_mutation.tsv.gz
 ICGC/Untitled.ipynb
 data/df_icgc_genes_normalizado.csv
+data/Genes/df_ids_dll.csv
+data/Genes/df_ids_egfr.csv
+data/Genes/df_ids_jak.csv
+data/Genes/df_ids_notch.csv
+data/Genes/df_ids_p53_family.csv
+data/Genes/df_ids_PDGFR.csv
+data/Genes/df_ids_SP.csv
+data/Genes/df_ids_tp53.csv
+data/Genes/df_kinasa_DLX.csv
+data/mutaciones/df_frecuencias_mut_genes_totales.csv
+data/mutaciones/mutaciones_aa_DLX
+data/mutaciones/mutaciones_aa_EGFR
+data/mutaciones/mutaciones_aa_sp
