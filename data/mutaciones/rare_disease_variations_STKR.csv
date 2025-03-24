@@ -1347,13 +1347,13 @@ BMPR2,Pulmonary arterial hypertension,S73*,nonsense,8797,Pathogenic,PAH
 BMPR2,Primary pulmonary hypertension,R899*,nonsense,8796,Pathogenic,PPH
 BMPR2,"Pulmonary hypertension, primary, 1",R899*,nonsense,8796,Pathogenic,PPH1
 BMPR2,Pulmonary venoocclusive disease 1,R899*,nonsense,8796,Pathogenic,PVOD1
-TGFBR1,Loeys-Dietz syndrome 1,G135E,missense variant,3075667,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,G140E,missense variant,3075667,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,G148E,missense variant,3075667,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,G152E,missense variant,3075667,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,G217E,missense variant,3075667,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,G221E,missense variant,3075667,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,G58E,missense variant,3075667,Likely pathogenic,LDS1
+TGFBR1,Loeys-Dietz syndrome 1,G135E,missense variant,3075667,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,G140E,missense variant,3075667,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,G148E,missense variant,3075667,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,G152E,missense variant,3075667,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,G217E,missense variant,3075667,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,G221E,missense variant,3075667,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,G58E,missense variant,3075667,Likely pathogenic,LDS
 TGFBR1,Loeys-Dietz syndrome,R323S,missense variant,2692427,Likely pathogenic,LDS
 TGFBR1,Loeys-Dietz syndrome,R417S,missense variant,2692427,Likely pathogenic,LDS
 TGFBR1,Loeys-Dietz syndrome,R426S,missense variant,2692427,Likely pathogenic,LDS
@@ -1364,53 +1364,53 @@ TGFBR1,Loeys-Dietz syndrome,R405S,missense variant,2692427,Likely pathogenic,LDS
 TGFBR1,Loeys-Dietz syndrome,R413S,missense variant,2692427,Likely pathogenic,LDS
 TGFBR1,Loeys-Dietz syndrome,R482S,missense variant,2692427,Likely pathogenic,LDS
 TGFBR1,Loeys-Dietz syndrome,R486S,missense variant,2692427,Likely pathogenic,LDS
-TGFBR1,Loeys-Dietz syndrome 1,L118M,missense variant,1806085,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,L195M,missense variant,1806085,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,L272M,missense variant,1806085,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,L277M,missense variant,1806085,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,L285M,missense variant,1806085,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,L289M,missense variant,1806085,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,L298M,missense variant,1806085,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,L302M,missense variant,1806085,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,L354M,missense variant,1806085,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,L358M,missense variant,1806085,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,K254E,missense variant,1805069,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,K331E,missense variant,1805069,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,K408E,missense variant,1805069,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,K413E,missense variant,1805069,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,K421E,missense variant,1805069,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,K425E,missense variant,1805069,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,K434E,missense variant,1805069,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,K438E,missense variant,1805069,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,K490E,missense variant,1805069,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,K494E,missense variant,1805069,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,D323N,missense variant,1332769,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,D400N,missense variant,1332769,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,D404N,missense variant,1332769,Likely pathogenic,LDS1
+TGFBR1,Loeys-Dietz syndrome 1,L118M,missense variant,1806085,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,L195M,missense variant,1806085,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,L272M,missense variant,1806085,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,L277M,missense variant,1806085,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,L285M,missense variant,1806085,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,L289M,missense variant,1806085,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,L298M,missense variant,1806085,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,L302M,missense variant,1806085,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,L354M,missense variant,1806085,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,L358M,missense variant,1806085,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,K254E,missense variant,1805069,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,K331E,missense variant,1805069,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,K408E,missense variant,1805069,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,K413E,missense variant,1805069,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,K421E,missense variant,1805069,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,K425E,missense variant,1805069,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,K434E,missense variant,1805069,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,K438E,missense variant,1805069,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,K490E,missense variant,1805069,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,K494E,missense variant,1805069,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,D323N,missense variant,1332769,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,D400N,missense variant,1332769,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,D404N,missense variant,1332769,Likely pathogenic,LDS
 TGFBR1,Multiple self-healing squamous epithelioma,L277fs,frameshift variant,1327058,Likely pathogenic,MSSE
 TGFBR1,Multiple self-healing squamous epithelioma,L354fs,frameshift variant,1327058,Likely pathogenic,MSSE
 TGFBR1,Multiple self-healing squamous epithelioma,L358fs,frameshift variant,1327058,Likely pathogenic,MSSE
-TGFBR1,Loeys-Dietz syndrome 1,G137R,missense variant,1320270,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,G214R,missense variant,1320270,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,G218R,missense variant,1320270,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,W281R,missense variant,1034099,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,W277R,missense variant,1034099,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,W200R,missense variant,1034099,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,L199P,missense variant,992362,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,L276P,missense variant,992362,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,L280P,missense variant,992362,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,E168D,missense variant,800489,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,E249D,missense variant,800489,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,E245D,missense variant,800489,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,L354P,missense variant,520505,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,L358P,missense variant,520505,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,L277P,missense variant,520505,Likely pathogenic,LDS1
+TGFBR1,Loeys-Dietz syndrome 1,G137R,missense variant,1320270,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,G214R,missense variant,1320270,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,G218R,missense variant,1320270,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,W281R,missense variant,1034099,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,W277R,missense variant,1034099,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,W200R,missense variant,1034099,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,L199P,missense variant,992362,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,L276P,missense variant,992362,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,L280P,missense variant,992362,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,E168D,missense variant,800489,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,E249D,missense variant,800489,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,E245D,missense variant,800489,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,L354P,missense variant,520505,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,L358P,missense variant,520505,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,L277P,missense variant,520505,Likely pathogenic,LDS
 TGFBR1,Loeys-Dietz syndrome,G353V,missense variant,492846,Pathogenic,LDS
 TGFBR1,Loeys-Dietz syndrome,G357V,missense variant,492846,Pathogenic,LDS
 TGFBR1,Loeys-Dietz syndrome,G276V,missense variant,492846,Pathogenic,LDS
-TGFBR1,Loeys-Dietz syndrome 1,G214S,missense variant,488621,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,G137S,missense variant,488621,Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,G218S,missense variant,488621,Likely pathogenic,LDS1
+TGFBR1,Loeys-Dietz syndrome 1,G214S,missense variant,488621,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,G137S,missense variant,488621,Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,G218S,missense variant,488621,Likely pathogenic,LDS
 TGFBR1,Multiple self-healing squamous epithelioma,R157*,nonsense,408560,Pathogenic,MSSE
 TGFBR1,Multiple self-healing squamous epithelioma,R161*,nonsense,408560,Pathogenic,MSSE
 TGFBR1,Marfan syndrome,M253V,missense variant,263773,Pathogenic/Likely pathogenic,MFS
@@ -1419,20 +1419,20 @@ TGFBR1,Marfan syndrome,M257V,missense variant,263773,Pathogenic/Likely pathogeni
 TGFBR1,Loeys-Dietz syndrome,E228del,inframe_deletion,213896,Pathogenic,LDS
 TGFBR1,Loeys-Dietz syndrome,E151del,inframe_deletion,213896,Pathogenic,LDS
 TGFBR1,Loeys-Dietz syndrome,E232del,inframe_deletion,213896,Pathogenic,LDS
-TGFBR1,Loeys-Dietz syndrome 1,D266G,missense variant,213884,Pathogenic/Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,D270G,missense variant,213884,Pathogenic/Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,D189G,missense variant,213884,Pathogenic/Likely pathogenic,LDS1
+TGFBR1,Loeys-Dietz syndrome 1,D266G,missense variant,213884,Pathogenic/Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,D270G,missense variant,213884,Pathogenic/Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,D189G,missense variant,213884,Pathogenic/Likely pathogenic,LDS
 TGFBR1,Loeys-Dietz syndrome,G312S,missense variant,213882,Pathogenic/Likely pathogenic,LDS
 TGFBR1,Loeys-Dietz syndrome,G235S,missense variant,213882,Pathogenic/Likely pathogenic,LDS
 TGFBR1,Loeys-Dietz syndrome,G316S,missense variant,213882,Pathogenic/Likely pathogenic,LDS
-TGFBR1,Loeys-Dietz syndrome 1,G312S,missense variant,213882,Pathogenic/Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,G235S,missense variant,213882,Pathogenic/Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,G316S,missense variant,213882,Pathogenic/Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,G174V,missense variant,12527,Pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,G178V,missense variant,12527,Pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,R487W,missense variant,12526,Pathogenic/Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,R410W,missense variant,12526,Pathogenic/Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,R491W,missense variant,12526,Pathogenic/Likely pathogenic,LDS1
+TGFBR1,Loeys-Dietz syndrome 1,G312S,missense variant,213882,Pathogenic/Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,G235S,missense variant,213882,Pathogenic/Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,G316S,missense variant,213882,Pathogenic/Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,G174V,missense variant,12527,Pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,G178V,missense variant,12527,Pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,R487W,missense variant,12526,Pathogenic/Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,R410W,missense variant,12526,Pathogenic/Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,R491W,missense variant,12526,Pathogenic/Likely pathogenic,LDS
 TGFBR1,Multiple self-healing squamous epithelioma,R487W,missense variant,12526,Pathogenic/Likely pathogenic,MSSE
 TGFBR1,Multiple self-healing squamous epithelioma,R410W,missense variant,12526,Pathogenic/Likely pathogenic,MSSE
 TGFBR1,Multiple self-healing squamous epithelioma,R491W,missense variant,12526,Pathogenic/Likely pathogenic,MSSE
@@ -1442,79 +1442,79 @@ TGFBR1,Loeys-Dietz syndrome,R491W,missense variant,12526,Pathogenic/Likely patho
 TGFBR1,Loeys-Dietz syndrome,R487Q,missense variant,12525,Pathogenic,LDS
 TGFBR1,Loeys-Dietz syndrome,R410Q,missense variant,12525,Pathogenic,LDS
 TGFBR1,Loeys-Dietz syndrome,R491Q,missense variant,12525,Pathogenic,LDS
-TGFBR1,Loeys-Dietz syndrome 1,R487Q,missense variant,12525,Pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,R410Q,missense variant,12525,Pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,R491Q,missense variant,12525,Pathogenic,LDS1
+TGFBR1,Loeys-Dietz syndrome 1,R487Q,missense variant,12525,Pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,R410Q,missense variant,12525,Pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,R491Q,missense variant,12525,Pathogenic,LDS
 TGFBR1,Marfan syndrome,S241L,missense variant,12524,Pathogenic/Likely pathogenic,MFS
 TGFBR1,Marfan syndrome,S164L,missense variant,12524,Pathogenic/Likely pathogenic,MFS
 TGFBR1,Marfan syndrome,S245L,missense variant,12524,Pathogenic/Likely pathogenic,MFS
-TGFBR1,Loeys-Dietz syndrome 1,S241L,missense variant,12524,Pathogenic/Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,S164L,missense variant,12524,Pathogenic/Likely pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,S245L,missense variant,12524,Pathogenic/Likely pathogenic,LDS1
+TGFBR1,Loeys-Dietz syndrome 1,S241L,missense variant,12524,Pathogenic/Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,S164L,missense variant,12524,Pathogenic/Likely pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,S245L,missense variant,12524,Pathogenic/Likely pathogenic,LDS
 TGFBR1,Multiple self-healing squamous epithelioma,S241L,missense variant,12524,Pathogenic/Likely pathogenic,MSSE
 TGFBR1,Multiple self-healing squamous epithelioma,S164L,missense variant,12524,Pathogenic/Likely pathogenic,MSSE
 TGFBR1,Multiple self-healing squamous epithelioma,S245L,missense variant,12524,Pathogenic/Likely pathogenic,MSSE
-TGFBR1,Loeys-Dietz syndrome 1,R487P,missense variant,12523,Pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,R410P,missense variant,12523,Pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,R491P,missense variant,12523,Pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,T200I,missense variant,12522,Pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,T123I,missense variant,12522,Pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,T204I,missense variant,12522,Pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,D400G,missense variant,12521,Pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,D323G,missense variant,12521,Pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,D404G,missense variant,12521,Pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,M318R,missense variant,12520,Pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,M241R,missense variant,12520,Pathogenic,LDS1
-TGFBR1,Loeys-Dietz syndrome 1,M322R,missense variant,12520,Pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 2,A241D,missense variant,3235255,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,A411D,missense variant,3235255,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,A436D,missense variant,3235255,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,A496D,missense variant,3235255,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,A530D,missense variant,3235255,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,A531D,missense variant,3235255,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,A532D,missense variant,3235255,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,A540D,missense variant,3235255,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,A556D,missense variant,3235255,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,A567D,missense variant,3235255,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,A592D,missense variant,3235255,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L230Q,missense variant,2683925,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L255Q,missense variant,2683925,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L315Q,missense variant,2683925,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L350Q,missense variant,2683925,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L351Q,missense variant,2683925,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L359Q,missense variant,2683925,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L375Q,missense variant,2683925,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L386Q,missense variant,2683925,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L411Q,missense variant,2683925,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q324*,nonsense,2574078,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q349*,nonsense,2574078,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q409*,nonsense,2574078,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q444*,nonsense,2574078,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q445*,nonsense,2574078,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q453*,nonsense,2574078,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q469*,nonsense,2574078,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q480*,nonsense,2574078,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q505*,nonsense,2574078,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W231*,nonsense,2444333,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W401*,nonsense,2444333,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W426*,nonsense,2444333,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W486*,nonsense,2444333,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W520*,nonsense,2444333,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W521*,nonsense,2444333,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W522*,nonsense,2444333,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W530*,nonsense,2444333,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W546*,nonsense,2444333,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W557*,nonsense,2444333,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W582*,nonsense,2444333,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q444P,missense variant,1699490,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q469P,missense variant,1699490,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q324P,missense variant,1699490,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q349P,missense variant,1699490,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q445P,missense variant,1699490,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q480P,missense variant,1699490,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q409P,missense variant,1699490,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q453P,missense variant,1699490,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Q505P,missense variant,1699490,Likely pathogenic,LDS2
+TGFBR1,Loeys-Dietz syndrome 1,R487P,missense variant,12523,Pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,R410P,missense variant,12523,Pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,R491P,missense variant,12523,Pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,T200I,missense variant,12522,Pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,T123I,missense variant,12522,Pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,T204I,missense variant,12522,Pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,D400G,missense variant,12521,Pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,D323G,missense variant,12521,Pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,D404G,missense variant,12521,Pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,M318R,missense variant,12520,Pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,M241R,missense variant,12520,Pathogenic,LDS
+TGFBR1,Loeys-Dietz syndrome 1,M322R,missense variant,12520,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,A241D,missense variant,3235255,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,A411D,missense variant,3235255,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,A436D,missense variant,3235255,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,A496D,missense variant,3235255,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,A530D,missense variant,3235255,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,A531D,missense variant,3235255,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,A532D,missense variant,3235255,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,A540D,missense variant,3235255,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,A556D,missense variant,3235255,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,A567D,missense variant,3235255,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,A592D,missense variant,3235255,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L230Q,missense variant,2683925,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L255Q,missense variant,2683925,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L315Q,missense variant,2683925,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L350Q,missense variant,2683925,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L351Q,missense variant,2683925,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L359Q,missense variant,2683925,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L375Q,missense variant,2683925,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L386Q,missense variant,2683925,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L411Q,missense variant,2683925,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q324*,nonsense,2574078,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q349*,nonsense,2574078,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q409*,nonsense,2574078,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q444*,nonsense,2574078,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q445*,nonsense,2574078,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q453*,nonsense,2574078,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q469*,nonsense,2574078,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q480*,nonsense,2574078,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q505*,nonsense,2574078,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W231*,nonsense,2444333,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W401*,nonsense,2444333,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W426*,nonsense,2444333,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W486*,nonsense,2444333,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W520*,nonsense,2444333,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W521*,nonsense,2444333,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W522*,nonsense,2444333,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W530*,nonsense,2444333,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W546*,nonsense,2444333,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W557*,nonsense,2444333,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W582*,nonsense,2444333,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q444P,missense variant,1699490,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q469P,missense variant,1699490,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q324P,missense variant,1699490,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q349P,missense variant,1699490,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q445P,missense variant,1699490,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q480P,missense variant,1699490,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q409P,missense variant,1699490,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q453P,missense variant,1699490,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Q505P,missense variant,1699490,Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,M434K,missense variant,1687722,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,M459K,missense variant,1687722,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,M339K,missense variant,1687722,Pathogenic,LDS
@@ -1524,117 +1524,117 @@ TGFBR2,Loeys-Dietz syndrome,M470K,missense variant,1687722,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,M314K,missense variant,1687722,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,M435K,missense variant,1687722,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,M495K,missense variant,1687722,Pathogenic,LDS
-TGFBR2,Loeys-Dietz syndrome 2,C393R,missense variant,1679895,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C418R,missense variant,1679895,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C273R,missense variant,1679895,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C429R,missense variant,1679895,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C454R,missense variant,1679895,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C358R,missense variant,1679895,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C394R,missense variant,1679895,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C298R,missense variant,1679895,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C402R,missense variant,1679895,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C368R,missense variant,1332843,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C393R,missense variant,1332843,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C273R,missense variant,1332843,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C333R,missense variant,1332843,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C377R,missense variant,1332843,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C429R,missense variant,1332843,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C248R,missense variant,1332843,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C404R,missense variant,1332843,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C369R,missense variant,1332843,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R460P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R485P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R365P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R469P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R425P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R496P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R340P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R521P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R461P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R460S,missense variant,1332770,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R485S,missense variant,1332770,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R469S,missense variant,1332770,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R496S,missense variant,1332770,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R461S,missense variant,1332770,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R365S,missense variant,1332770,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R340S,missense variant,1332770,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R425S,missense variant,1332770,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R521S,missense variant,1332770,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R528S,missense variant,1299545,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R553S,missense variant,1299545,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R238S,missense variant,1299545,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R493S,missense variant,1299545,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R564S,missense variant,1299545,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R527S,missense variant,1299545,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R529S,missense variant,1299545,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R433S,missense variant,1299545,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R408S,missense variant,1299545,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R537S,missense variant,1299545,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R589S,missense variant,1299545,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W287S,missense variant,1297003,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W312S,missense variant,1297003,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W167S,missense variant,1297003,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W252S,missense variant,1297003,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W192S,missense variant,1297003,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W288S,missense variant,1297003,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W323S,missense variant,1297003,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W348S,missense variant,1297003,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,W296S,missense variant,1297003,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R378S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R403S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R258S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R283S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R343S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R379S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R414S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R387S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R439S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 1,W504*,nonsense,694685,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,W529*,nonsense,694685,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,W214*,nonsense,694685,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,W505*,nonsense,694685,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,W384*,nonsense,694685,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,W513*,nonsense,694685,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,W409*,nonsense,694685,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,W469*,nonsense,694685,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,W503*,nonsense,694685,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,W540*,nonsense,694685,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,W565*,nonsense,694685,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 2,C461R,missense variant,393299,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C497R,missense variant,393299,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C470R,missense variant,393299,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C366R,missense variant,393299,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C522R,missense variant,393299,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C341R,missense variant,393299,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C426R,missense variant,393299,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C462R,missense variant,393299,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D446N,missense variant,265447,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D471N,missense variant,265447,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D455N,missense variant,265447,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D482N,missense variant,265447,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D507N,missense variant,265447,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D411N,missense variant,265447,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D326N,missense variant,265447,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D351N,missense variant,265447,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D447N,missense variant,265447,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 1,D446N,missense variant,265447,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,D471N,missense variant,265447,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,D455N,missense variant,265447,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,D482N,missense variant,265447,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,D507N,missense variant,265447,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,D411N,missense variant,265447,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,D326N,missense variant,265447,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,D351N,missense variant,265447,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 1,D447N,missense variant,265447,Pathogenic/Likely pathogenic,LDS1
-TGFBR2,Loeys-Dietz syndrome 2,K277N,missense variant,263412,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,K302N,missense variant,263412,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,K182N,missense variant,263412,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,K242N,missense variant,263412,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,K286N,missense variant,263412,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,K313N,missense variant,263412,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,K278N,missense variant,263412,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,K157N,missense variant,263412,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,K338N,missense variant,263412,Pathogenic,LDS2
+TGFBR2,Loeys-Dietz syndrome 2,C393R,missense variant,1679895,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C418R,missense variant,1679895,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C273R,missense variant,1679895,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C429R,missense variant,1679895,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C454R,missense variant,1679895,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C358R,missense variant,1679895,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C394R,missense variant,1679895,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C298R,missense variant,1679895,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C402R,missense variant,1679895,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C368R,missense variant,1332843,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C393R,missense variant,1332843,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C273R,missense variant,1332843,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C333R,missense variant,1332843,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C377R,missense variant,1332843,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C429R,missense variant,1332843,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C248R,missense variant,1332843,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C404R,missense variant,1332843,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C369R,missense variant,1332843,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R460P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R485P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R365P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R469P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R425P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R496P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R340P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R521P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R461P,missense variant,1332771,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R460S,missense variant,1332770,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R485S,missense variant,1332770,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R469S,missense variant,1332770,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R496S,missense variant,1332770,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R461S,missense variant,1332770,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R365S,missense variant,1332770,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R340S,missense variant,1332770,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R425S,missense variant,1332770,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R521S,missense variant,1332770,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R528S,missense variant,1299545,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R553S,missense variant,1299545,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R238S,missense variant,1299545,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R493S,missense variant,1299545,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R564S,missense variant,1299545,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R527S,missense variant,1299545,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R529S,missense variant,1299545,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R433S,missense variant,1299545,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R408S,missense variant,1299545,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R537S,missense variant,1299545,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R589S,missense variant,1299545,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W287S,missense variant,1297003,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W312S,missense variant,1297003,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W167S,missense variant,1297003,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W252S,missense variant,1297003,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W192S,missense variant,1297003,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W288S,missense variant,1297003,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W323S,missense variant,1297003,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W348S,missense variant,1297003,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,W296S,missense variant,1297003,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R378S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R403S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R258S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R283S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R343S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R379S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R414S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R387S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R439S,missense variant,1028591,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,W504*,nonsense,694685,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,W529*,nonsense,694685,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,W214*,nonsense,694685,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,W505*,nonsense,694685,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,W384*,nonsense,694685,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,W513*,nonsense,694685,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,W409*,nonsense,694685,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,W469*,nonsense,694685,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,W503*,nonsense,694685,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,W540*,nonsense,694685,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,W565*,nonsense,694685,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C461R,missense variant,393299,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C497R,missense variant,393299,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C470R,missense variant,393299,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C366R,missense variant,393299,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C522R,missense variant,393299,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C341R,missense variant,393299,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C426R,missense variant,393299,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C462R,missense variant,393299,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D446N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D471N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D455N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D482N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D507N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D411N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D326N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D351N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D447N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,D446N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,D471N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,D455N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,D482N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,D507N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,D411N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,D326N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,D351N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 1,D447N,missense variant,265447,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,K277N,missense variant,263412,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,K302N,missense variant,263412,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,K182N,missense variant,263412,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,K242N,missense variant,263412,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,K286N,missense variant,263412,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,K313N,missense variant,263412,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,K278N,missense variant,263412,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,K157N,missense variant,263412,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,K338N,missense variant,263412,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,G351D,missense variant,222839,Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,G376D,missense variant,222839,Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,G231D,missense variant,222839,Likely pathogenic,LDS
@@ -1644,17 +1644,17 @@ TGFBR2,Loeys-Dietz syndrome,G387D,missense variant,222839,Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,G412D,missense variant,222839,Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,G256D,missense variant,222839,Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,G360D,missense variant,222839,Likely pathogenic,LDS
-TGFBR2,Loeys-Dietz syndrome 2,Y470D,missense variant,217016,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y495D,missense variant,217016,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y180D,missense variant,217016,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y350D,missense variant,217016,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y471D,missense variant,217016,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y506D,missense variant,217016,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y435D,missense variant,217016,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y469D,missense variant,217016,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y375D,missense variant,217016,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y479D,missense variant,217016,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y531D,missense variant,217016,Pathogenic/Likely pathogenic,LDS2
+TGFBR2,Loeys-Dietz syndrome 2,Y470D,missense variant,217016,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y495D,missense variant,217016,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y180D,missense variant,217016,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y350D,missense variant,217016,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y471D,missense variant,217016,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y506D,missense variant,217016,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y435D,missense variant,217016,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y469D,missense variant,217016,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y375D,missense variant,217016,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y479D,missense variant,217016,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y531D,missense variant,217016,Pathogenic/Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R497*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R522*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R207*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
@@ -1666,17 +1666,17 @@ TGFBR2,Loeys-Dietz syndrome,R377*,nonsense,213934,Pathogenic/Likely pathogenic,L
 TGFBR2,Loeys-Dietz syndrome,R402*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R533*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R558*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
-TGFBR2,Loeys-Dietz syndrome 2,R497*,nonsense,213934,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R522*,nonsense,213934,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R207*,nonsense,213934,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R498*,nonsense,213934,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R462*,nonsense,213934,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R496*,nonsense,213934,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R506*,nonsense,213934,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R377*,nonsense,213934,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R402*,nonsense,213934,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R533*,nonsense,213934,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R558*,nonsense,213934,Pathogenic/Likely pathogenic,LDS2
+TGFBR2,Loeys-Dietz syndrome 2,R497*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R522*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R207*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R498*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R462*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R496*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R506*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R377*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R402*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R533*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R558*,nonsense,213934,Pathogenic/Likely pathogenic,LDS
 TGFBR2,Marfan syndrome,D524N,missense variant,180541,Pathogenic/Likely pathogenic,MFS
 TGFBR2,Marfan syndrome,D549N,missense variant,180541,Pathogenic/Likely pathogenic,MFS
 TGFBR2,Marfan syndrome,D404N,missense variant,180541,Pathogenic/Likely pathogenic,MFS
@@ -1688,17 +1688,17 @@ TGFBR2,Marfan syndrome,D533N,missense variant,180541,Pathogenic/Likely pathogeni
 TGFBR2,Marfan syndrome,D560N,missense variant,180541,Pathogenic/Likely pathogenic,MFS
 TGFBR2,Marfan syndrome,D489N,missense variant,180541,Pathogenic/Likely pathogenic,MFS
 TGFBR2,Marfan syndrome,D585N,missense variant,180541,Pathogenic/Likely pathogenic,MFS
-TGFBR2,Loeys-Dietz syndrome 2,D524N,missense variant,180541,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D549N,missense variant,180541,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D404N,missense variant,180541,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D234N,missense variant,180541,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D429N,missense variant,180541,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D523N,missense variant,180541,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D525N,missense variant,180541,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D533N,missense variant,180541,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D560N,missense variant,180541,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D489N,missense variant,180541,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,D585N,missense variant,180541,Pathogenic/Likely pathogenic,LDS2
+TGFBR2,Loeys-Dietz syndrome 2,D524N,missense variant,180541,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D549N,missense variant,180541,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D404N,missense variant,180541,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D234N,missense variant,180541,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D429N,missense variant,180541,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D523N,missense variant,180541,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D525N,missense variant,180541,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D533N,missense variant,180541,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D560N,missense variant,180541,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D489N,missense variant,180541,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,D585N,missense variant,180541,Pathogenic/Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R356P,missense variant,177704,Pathogenic/Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R381P,missense variant,177704,Pathogenic/Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R236P,missense variant,177704,Pathogenic/Likely pathogenic,LDS
@@ -1708,15 +1708,15 @@ TGFBR2,Loeys-Dietz syndrome,R417P,missense variant,177704,Pathogenic/Likely path
 TGFBR2,Loeys-Dietz syndrome,R365P,missense variant,177704,Pathogenic/Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R392P,missense variant,177704,Pathogenic/Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R261P,missense variant,177704,Pathogenic/Likely pathogenic,LDS
-TGFBR2,Loeys-Dietz syndrome 2,R356P,missense variant,177704,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R381P,missense variant,177704,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R236P,missense variant,177704,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R357P,missense variant,177704,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R321P,missense variant,177704,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R417P,missense variant,177704,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R365P,missense variant,177704,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R392P,missense variant,177704,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R261P,missense variant,177704,Pathogenic/Likely pathogenic,LDS2
+TGFBR2,Loeys-Dietz syndrome 2,R356P,missense variant,177704,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R381P,missense variant,177704,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R236P,missense variant,177704,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R357P,missense variant,177704,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R321P,missense variant,177704,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R417P,missense variant,177704,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R365P,missense variant,177704,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R392P,missense variant,177704,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R261P,missense variant,177704,Pathogenic/Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,W287R,missense variant,165391,Pathogenic/Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,W312R,missense variant,165391,Pathogenic/Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,W288R,missense variant,165391,Pathogenic/Likely pathogenic,LDS
@@ -1726,15 +1726,15 @@ TGFBR2,Loeys-Dietz syndrome,W348R,missense variant,165391,Pathogenic/Likely path
 TGFBR2,Loeys-Dietz syndrome,W167R,missense variant,165391,Pathogenic/Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,W192R,missense variant,165391,Pathogenic/Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,W323R,missense variant,165391,Pathogenic/Likely pathogenic,LDS
-TGFBR2,Loeys-Dietz syndrome 2,C461Y,missense variant,155839,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C486Y,missense variant,155839,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C470Y,missense variant,155839,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C497Y,missense variant,155839,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C341Y,missense variant,155839,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C426Y,missense variant,155839,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C522Y,missense variant,155839,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C462Y,missense variant,155839,Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,C366Y,missense variant,155839,Likely pathogenic,LDS2
+TGFBR2,Loeys-Dietz syndrome 2,C461Y,missense variant,155839,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C486Y,missense variant,155839,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C470Y,missense variant,155839,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C497Y,missense variant,155839,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C341Y,missense variant,155839,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C426Y,missense variant,155839,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C522Y,missense variant,155839,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C462Y,missense variant,155839,Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,C366Y,missense variant,155839,Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,E499*,nonsense,44657,Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,E524*,nonsense,44657,Likely pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,E498*,nonsense,44657,Likely pathogenic,LDS
@@ -1768,17 +1768,17 @@ TGFBR2,Loeys-Dietz syndrome,R531*,nonsense,12519,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R460*,nonsense,12519,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R494*,nonsense,12519,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R496*,nonsense,12519,Pathogenic,LDS
-TGFBR2,Loeys-Dietz syndrome 2,R495*,nonsense,12519,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R520*,nonsense,12519,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R205*,nonsense,12519,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R556*,nonsense,12519,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R400*,nonsense,12519,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R375*,nonsense,12519,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R504*,nonsense,12519,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R531*,nonsense,12519,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R460*,nonsense,12519,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R494*,nonsense,12519,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R496*,nonsense,12519,Pathogenic,LDS2
+TGFBR2,Loeys-Dietz syndrome 2,R495*,nonsense,12519,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R520*,nonsense,12519,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R205*,nonsense,12519,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R556*,nonsense,12519,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R400*,nonsense,12519,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R375*,nonsense,12519,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R504*,nonsense,12519,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R531*,nonsense,12519,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R460*,nonsense,12519,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R494*,nonsense,12519,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R496*,nonsense,12519,Pathogenic,LDS
 TGFBR2,"Colorectal cancer, hereditary nonpolyposis, type 6",R495*,nonsense,12519,Pathogenic,HNPCC6
 TGFBR2,"Colorectal cancer, hereditary nonpolyposis, type 6",R520*,nonsense,12519,Pathogenic,HNPCC6
 TGFBR2,"Colorectal cancer, hereditary nonpolyposis, type 6",R205*,nonsense,12519,Pathogenic,HNPCC6
@@ -1790,33 +1790,33 @@ TGFBR2,"Colorectal cancer, hereditary nonpolyposis, type 6",R531*,nonsense,12519
 TGFBR2,"Colorectal cancer, hereditary nonpolyposis, type 6",R460*,nonsense,12519,Pathogenic,HNPCC6
 TGFBR2,"Colorectal cancer, hereditary nonpolyposis, type 6",R494*,nonsense,12519,Pathogenic,HNPCC6
 TGFBR2,"Colorectal cancer, hereditary nonpolyposis, type 6",R496*,nonsense,12519,Pathogenic,HNPCC6
-TGFBR2,Loeys-Dietz syndrome 2,P427L,missense variant,12518,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,P452L,missense variant,12518,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,P332L,missense variant,12518,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,P488L,missense variant,12518,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,P307L,missense variant,12518,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,P392L,missense variant,12518,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,P428L,missense variant,12518,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,P436L,missense variant,12518,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,P463L,missense variant,12518,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R460H,missense variant,12515,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R485H,missense variant,12515,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R365H,missense variant,12515,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R425H,missense variant,12515,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R461H,missense variant,12515,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R469H,missense variant,12515,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R340H,missense variant,12515,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R496H,missense variant,12515,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R521H,missense variant,12515,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R460C,missense variant,12514,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R485C,missense variant,12514,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R340C,missense variant,12514,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R425C,missense variant,12514,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R469C,missense variant,12514,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R365C,missense variant,12514,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R461C,missense variant,12514,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R496C,missense variant,12514,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R521C,missense variant,12514,Pathogenic,LDS2
+TGFBR2,Loeys-Dietz syndrome 2,P427L,missense variant,12518,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,P452L,missense variant,12518,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,P332L,missense variant,12518,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,P488L,missense variant,12518,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,P307L,missense variant,12518,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,P392L,missense variant,12518,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,P428L,missense variant,12518,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,P436L,missense variant,12518,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,P463L,missense variant,12518,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R460H,missense variant,12515,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R485H,missense variant,12515,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R365H,missense variant,12515,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R425H,missense variant,12515,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R461H,missense variant,12515,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R469H,missense variant,12515,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R340H,missense variant,12515,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R496H,missense variant,12515,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R521H,missense variant,12515,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R460C,missense variant,12514,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R485C,missense variant,12514,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R340C,missense variant,12514,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R425C,missense variant,12514,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R469C,missense variant,12514,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R365C,missense variant,12514,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R461C,missense variant,12514,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R496C,missense variant,12514,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R521C,missense variant,12514,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R528C,missense variant,12512,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R553C,missense variant,12512,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R493C,missense variant,12512,Pathogenic,LDS
@@ -1828,17 +1828,17 @@ TGFBR2,Loeys-Dietz syndrome,R433C,missense variant,12512,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R564C,missense variant,12512,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R408C,missense variant,12512,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R589C,missense variant,12512,Pathogenic,LDS
-TGFBR2,Loeys-Dietz syndrome 2,R528C,missense variant,12512,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R553C,missense variant,12512,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R493C,missense variant,12512,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R527C,missense variant,12512,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R537C,missense variant,12512,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R529C,missense variant,12512,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R238C,missense variant,12512,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R433C,missense variant,12512,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R564C,missense variant,12512,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R408C,missense variant,12512,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R589C,missense variant,12512,Pathogenic,LDS2
+TGFBR2,Loeys-Dietz syndrome 2,R528C,missense variant,12512,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R553C,missense variant,12512,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R493C,missense variant,12512,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R527C,missense variant,12512,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R537C,missense variant,12512,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R529C,missense variant,12512,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R238C,missense variant,12512,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R433C,missense variant,12512,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R564C,missense variant,12512,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R408C,missense variant,12512,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R589C,missense variant,12512,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R528H,missense variant,12511,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R553H,missense variant,12511,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R238H,missense variant,12511,Pathogenic,LDS
@@ -1850,52 +1850,52 @@ TGFBR2,Loeys-Dietz syndrome,R433H,missense variant,12511,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R529H,missense variant,12511,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R493H,missense variant,12511,Pathogenic,LDS
 TGFBR2,Loeys-Dietz syndrome,R527H,missense variant,12511,Pathogenic,LDS
-TGFBR2,Loeys-Dietz syndrome 2,G357W,missense variant,12510,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,G382W,missense variant,12510,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,G237W,missense variant,12510,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,G262W,missense variant,12510,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,G322W,missense variant,12510,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,G358W,missense variant,12510,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,G366W,missense variant,12510,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,G418W,missense variant,12510,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,G393W,missense variant,12510,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y336N,missense variant,12508,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y361N,missense variant,12508,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y216N,missense variant,12508,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y372N,missense variant,12508,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y397N,missense variant,12508,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y301N,missense variant,12508,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y345N,missense variant,12508,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y241N,missense variant,12508,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,Y337N,missense variant,12508,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R537C,missense variant,12507,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R562C,missense variant,12507,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R573C,missense variant,12507,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R598C,missense variant,12507,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R502C,missense variant,12507,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R247C,missense variant,12507,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R417C,missense variant,12507,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R442C,missense variant,12507,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R536C,missense variant,12507,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R538C,missense variant,12507,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,R546C,missense variant,12507,Pathogenic/Likely pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,S449F,missense variant,12506,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,S474F,missense variant,12506,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,S458F,missense variant,12506,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,S485F,missense variant,12506,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,S329F,missense variant,12506,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,S354F,missense variant,12506,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,S510F,missense variant,12506,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,S414F,missense variant,12506,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,S450F,missense variant,12506,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L308P,missense variant,12505,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L333P,missense variant,12505,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L213P,missense variant,12505,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L188P,missense variant,12505,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L273P,missense variant,12505,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L309P,missense variant,12505,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L317P,missense variant,12505,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L344P,missense variant,12505,Pathogenic,LDS2
-TGFBR2,Loeys-Dietz syndrome 2,L369P,missense variant,12505,Pathogenic,LDS2
+TGFBR2,Loeys-Dietz syndrome 2,G357W,missense variant,12510,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,G382W,missense variant,12510,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,G237W,missense variant,12510,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,G262W,missense variant,12510,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,G322W,missense variant,12510,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,G358W,missense variant,12510,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,G366W,missense variant,12510,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,G418W,missense variant,12510,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,G393W,missense variant,12510,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y336N,missense variant,12508,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y361N,missense variant,12508,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y216N,missense variant,12508,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y372N,missense variant,12508,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y397N,missense variant,12508,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y301N,missense variant,12508,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y345N,missense variant,12508,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y241N,missense variant,12508,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,Y337N,missense variant,12508,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R537C,missense variant,12507,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R562C,missense variant,12507,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R573C,missense variant,12507,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R598C,missense variant,12507,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R502C,missense variant,12507,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R247C,missense variant,12507,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R417C,missense variant,12507,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R442C,missense variant,12507,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R536C,missense variant,12507,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R538C,missense variant,12507,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,R546C,missense variant,12507,Pathogenic/Likely pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,S449F,missense variant,12506,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,S474F,missense variant,12506,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,S458F,missense variant,12506,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,S485F,missense variant,12506,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,S329F,missense variant,12506,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,S354F,missense variant,12506,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,S510F,missense variant,12506,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,S414F,missense variant,12506,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,S450F,missense variant,12506,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L308P,missense variant,12505,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L333P,missense variant,12505,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L213P,missense variant,12505,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L188P,missense variant,12505,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L273P,missense variant,12505,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L309P,missense variant,12505,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L317P,missense variant,12505,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L344P,missense variant,12505,Pathogenic,LDS
+TGFBR2,Loeys-Dietz syndrome 2,L369P,missense variant,12505,Pathogenic,LDS
 TGFBR2,"Colorectal cancer, hereditary nonpolyposis, type 6",A535fs,frameshift variant,12501,Pathogenic,HNPCC6
 TGFBR2,"Colorectal cancer, hereditary nonpolyposis, type 6",A560fs,frameshift variant,12501,Pathogenic,HNPCC6

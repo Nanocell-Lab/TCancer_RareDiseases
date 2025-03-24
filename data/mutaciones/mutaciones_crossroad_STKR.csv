@@ -83,20 +83,20 @@ BMPR2,R491W,8802,Utero,Primary pulmonary hypertension,missense variant,PPH,491
 BMPR2,R491W,8802,Colon,Primary pulmonary hypertension,missense variant,PPH,491
 BMPR2,R491W,8802,Utero,Pulmonary arterial hypertension,missense variant,PAH,491
 BMPR2,R491W,8802,Colon,Pulmonary arterial hypertension,missense variant,PAH,491
-TGFBR1,W281R,1034099,Utero,Loeys-Dietz syndrome 1,missense variant,LDS1,281
-TGFBR1,W277R,1034099,Utero,Loeys-Dietz syndrome 1,missense variant,LDS1,277
-TGFBR1,W200R,1034099,Utero,Loeys-Dietz syndrome 1,missense variant,LDS1,200
-TGFBR1,L354P,520505,Estomago,Loeys-Dietz syndrome 1,missense variant,LDS1,354
-TGFBR1,L358P,520505,Estomago,Loeys-Dietz syndrome 1,missense variant,LDS1,358
-TGFBR1,L277P,520505,Estomago,Loeys-Dietz syndrome 1,missense variant,LDS1,277
+TGFBR1,W281R,1034099,Utero,Loeys-Dietz syndrome 1,missense variant,LDS,281
+TGFBR1,W277R,1034099,Utero,Loeys-Dietz syndrome 1,missense variant,LDS,277
+TGFBR1,W200R,1034099,Utero,Loeys-Dietz syndrome 1,missense variant,LDS,200
+TGFBR1,L354P,520505,Estomago,Loeys-Dietz syndrome 1,missense variant,LDS,354
+TGFBR1,L358P,520505,Estomago,Loeys-Dietz syndrome 1,missense variant,LDS,358
+TGFBR1,L277P,520505,Estomago,Loeys-Dietz syndrome 1,missense variant,LDS,277
 TGFBR1,R157*,408560,Utero,Multiple self-healing squamous epithelioma,nonsense,MSSE,157
 TGFBR1,R161*,408560,Utero,Multiple self-healing squamous epithelioma,nonsense,MSSE,161
-TGFBR1,R487W,12526,Utero,Loeys-Dietz syndrome 1,missense variant,LDS1,487
-TGFBR1,R487W,12526,Colon,Loeys-Dietz syndrome 1,missense variant,LDS1,487
-TGFBR1,R410W,12526,Utero,Loeys-Dietz syndrome 1,missense variant,LDS1,410
-TGFBR1,R410W,12526,Colon,Loeys-Dietz syndrome 1,missense variant,LDS1,410
-TGFBR1,R491W,12526,Utero,Loeys-Dietz syndrome 1,missense variant,LDS1,491
-TGFBR1,R491W,12526,Colon,Loeys-Dietz syndrome 1,missense variant,LDS1,491
+TGFBR1,R487W,12526,Utero,Loeys-Dietz syndrome 1,missense variant,LDS,487
+TGFBR1,R487W,12526,Colon,Loeys-Dietz syndrome 1,missense variant,LDS,487
+TGFBR1,R410W,12526,Utero,Loeys-Dietz syndrome 1,missense variant,LDS,410
+TGFBR1,R410W,12526,Colon,Loeys-Dietz syndrome 1,missense variant,LDS,410
+TGFBR1,R491W,12526,Utero,Loeys-Dietz syndrome 1,missense variant,LDS,491
+TGFBR1,R491W,12526,Colon,Loeys-Dietz syndrome 1,missense variant,LDS,491
 TGFBR1,R487W,12526,Utero,Multiple self-healing squamous epithelioma,missense variant,MSSE,487
 TGFBR1,R487W,12526,Colon,Multiple self-healing squamous epithelioma,missense variant,MSSE,487
 TGFBR1,R410W,12526,Utero,Multiple self-healing squamous epithelioma,missense variant,MSSE,410
@@ -121,61 +121,61 @@ TGFBR1,R491Q,12525,Vesicula,Loeys-Dietz syndrome,missense variant,LDS,491
 TGFBR1,R491Q,12525,Higado,Loeys-Dietz syndrome,missense variant,LDS,491
 TGFBR1,R491Q,12525,Pancreas,Loeys-Dietz syndrome,missense variant,LDS,491
 TGFBR1,R491Q,12525,Estomago,Loeys-Dietz syndrome,missense variant,LDS,491
-TGFBR1,R487Q,12525,Vesicula,Loeys-Dietz syndrome 1,missense variant,LDS1,487
-TGFBR1,R487Q,12525,Higado,Loeys-Dietz syndrome 1,missense variant,LDS1,487
-TGFBR1,R487Q,12525,Pancreas,Loeys-Dietz syndrome 1,missense variant,LDS1,487
-TGFBR1,R487Q,12525,Estomago,Loeys-Dietz syndrome 1,missense variant,LDS1,487
-TGFBR1,R410Q,12525,Vesicula,Loeys-Dietz syndrome 1,missense variant,LDS1,410
-TGFBR1,R410Q,12525,Higado,Loeys-Dietz syndrome 1,missense variant,LDS1,410
-TGFBR1,R410Q,12525,Pancreas,Loeys-Dietz syndrome 1,missense variant,LDS1,410
-TGFBR1,R410Q,12525,Estomago,Loeys-Dietz syndrome 1,missense variant,LDS1,410
-TGFBR1,R491Q,12525,Vesicula,Loeys-Dietz syndrome 1,missense variant,LDS1,491
-TGFBR1,R491Q,12525,Higado,Loeys-Dietz syndrome 1,missense variant,LDS1,491
-TGFBR1,R491Q,12525,Pancreas,Loeys-Dietz syndrome 1,missense variant,LDS1,491
-TGFBR1,R491Q,12525,Estomago,Loeys-Dietz syndrome 1,missense variant,LDS1,491
+TGFBR1,R487Q,12525,Vesicula,Loeys-Dietz syndrome 1,missense variant,LDS,487
+TGFBR1,R487Q,12525,Higado,Loeys-Dietz syndrome 1,missense variant,LDS,487
+TGFBR1,R487Q,12525,Pancreas,Loeys-Dietz syndrome 1,missense variant,LDS,487
+TGFBR1,R487Q,12525,Estomago,Loeys-Dietz syndrome 1,missense variant,LDS,487
+TGFBR1,R410Q,12525,Vesicula,Loeys-Dietz syndrome 1,missense variant,LDS,410
+TGFBR1,R410Q,12525,Higado,Loeys-Dietz syndrome 1,missense variant,LDS,410
+TGFBR1,R410Q,12525,Pancreas,Loeys-Dietz syndrome 1,missense variant,LDS,410
+TGFBR1,R410Q,12525,Estomago,Loeys-Dietz syndrome 1,missense variant,LDS,410
+TGFBR1,R491Q,12525,Vesicula,Loeys-Dietz syndrome 1,missense variant,LDS,491
+TGFBR1,R491Q,12525,Higado,Loeys-Dietz syndrome 1,missense variant,LDS,491
+TGFBR1,R491Q,12525,Pancreas,Loeys-Dietz syndrome 1,missense variant,LDS,491
+TGFBR1,R491Q,12525,Estomago,Loeys-Dietz syndrome 1,missense variant,LDS,491
 TGFBR1,S241L,12524,Colon,Marfan syndrome,missense variant,MFS,241
 TGFBR1,S164L,12524,Colon,Marfan syndrome,missense variant,MFS,164
 TGFBR1,S245L,12524,Colon,Marfan syndrome,missense variant,MFS,245
-TGFBR1,S241L,12524,Colon,Loeys-Dietz syndrome 1,missense variant,LDS1,241
-TGFBR1,S164L,12524,Colon,Loeys-Dietz syndrome 1,missense variant,LDS1,164
-TGFBR1,S245L,12524,Colon,Loeys-Dietz syndrome 1,missense variant,LDS1,245
+TGFBR1,S241L,12524,Colon,Loeys-Dietz syndrome 1,missense variant,LDS,241
+TGFBR1,S164L,12524,Colon,Loeys-Dietz syndrome 1,missense variant,LDS,164
+TGFBR1,S245L,12524,Colon,Loeys-Dietz syndrome 1,missense variant,LDS,245
 TGFBR1,S241L,12524,Colon,Multiple self-healing squamous epithelioma,missense variant,MSSE,241
 TGFBR1,S164L,12524,Colon,Multiple self-healing squamous epithelioma,missense variant,MSSE,164
 TGFBR1,S245L,12524,Colon,Multiple self-healing squamous epithelioma,missense variant,MSSE,245
-TGFBR2,W521*,2444333,Seno ,Loeys-Dietz syndrome 2,nonsense,LDS2,521
-TGFBR2,W521*,2444333,Utero,Loeys-Dietz syndrome 2,nonsense,LDS2,521
-TGFBR2,W546*,2444333,Seno ,Loeys-Dietz syndrome 2,nonsense,LDS2,546
-TGFBR2,W546*,2444333,Utero,Loeys-Dietz syndrome 2,nonsense,LDS2,546
-TGFBR2,D446N,265447,Colon,Loeys-Dietz syndrome 2,missense variant,LDS2,446
-TGFBR2,D446N,265447,Utero,Loeys-Dietz syndrome 2,missense variant,LDS2,446
-TGFBR2,D446N,265447,Cervix,Loeys-Dietz syndrome 2,missense variant,LDS2,446
-TGFBR2,D446N,265447,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS2,446
-TGFBR2,D471N,265447,Colon,Loeys-Dietz syndrome 2,missense variant,LDS2,471
-TGFBR2,D471N,265447,Utero,Loeys-Dietz syndrome 2,missense variant,LDS2,471
-TGFBR2,D471N,265447,Cervix,Loeys-Dietz syndrome 2,missense variant,LDS2,471
-TGFBR2,D471N,265447,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS2,471
-TGFBR2,D446N,265447,Colon,Loeys-Dietz syndrome 1,missense variant,LDS1,446
-TGFBR2,D446N,265447,Utero,Loeys-Dietz syndrome 1,missense variant,LDS1,446
-TGFBR2,D446N,265447,Cervix,Loeys-Dietz syndrome 1,missense variant,LDS1,446
-TGFBR2,D446N,265447,Pancreas,Loeys-Dietz syndrome 1,missense variant,LDS1,446
-TGFBR2,D471N,265447,Colon,Loeys-Dietz syndrome 1,missense variant,LDS1,471
-TGFBR2,D471N,265447,Utero,Loeys-Dietz syndrome 1,missense variant,LDS1,471
-TGFBR2,D471N,265447,Cervix,Loeys-Dietz syndrome 1,missense variant,LDS1,471
-TGFBR2,D471N,265447,Pancreas,Loeys-Dietz syndrome 1,missense variant,LDS1,471
-TGFBR2,K277N,263412,Utero,Loeys-Dietz syndrome 2,missense variant,LDS2,277
-TGFBR2,K302N,263412,Utero,Loeys-Dietz syndrome 2,missense variant,LDS2,302
+TGFBR2,W521*,2444333,Seno ,Loeys-Dietz syndrome 2,nonsense,LDS,521
+TGFBR2,W521*,2444333,Utero,Loeys-Dietz syndrome 2,nonsense,LDS,521
+TGFBR2,W546*,2444333,Seno ,Loeys-Dietz syndrome 2,nonsense,LDS,546
+TGFBR2,W546*,2444333,Utero,Loeys-Dietz syndrome 2,nonsense,LDS,546
+TGFBR2,D446N,265447,Colon,Loeys-Dietz syndrome 2,missense variant,LDS,446
+TGFBR2,D446N,265447,Utero,Loeys-Dietz syndrome 2,missense variant,LDS,446
+TGFBR2,D446N,265447,Cervix,Loeys-Dietz syndrome 2,missense variant,LDS,446
+TGFBR2,D446N,265447,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS,446
+TGFBR2,D471N,265447,Colon,Loeys-Dietz syndrome 2,missense variant,LDS,471
+TGFBR2,D471N,265447,Utero,Loeys-Dietz syndrome 2,missense variant,LDS,471
+TGFBR2,D471N,265447,Cervix,Loeys-Dietz syndrome 2,missense variant,LDS,471
+TGFBR2,D471N,265447,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS,471
+TGFBR2,D446N,265447,Colon,Loeys-Dietz syndrome 1,missense variant,LDS,446
+TGFBR2,D446N,265447,Utero,Loeys-Dietz syndrome 1,missense variant,LDS,446
+TGFBR2,D446N,265447,Cervix,Loeys-Dietz syndrome 1,missense variant,LDS,446
+TGFBR2,D446N,265447,Pancreas,Loeys-Dietz syndrome 1,missense variant,LDS,446
+TGFBR2,D471N,265447,Colon,Loeys-Dietz syndrome 1,missense variant,LDS,471
+TGFBR2,D471N,265447,Utero,Loeys-Dietz syndrome 1,missense variant,LDS,471
+TGFBR2,D471N,265447,Cervix,Loeys-Dietz syndrome 1,missense variant,LDS,471
+TGFBR2,D471N,265447,Pancreas,Loeys-Dietz syndrome 1,missense variant,LDS,471
+TGFBR2,K277N,263412,Utero,Loeys-Dietz syndrome 2,missense variant,LDS,277
+TGFBR2,K302N,263412,Utero,Loeys-Dietz syndrome 2,missense variant,LDS,302
 TGFBR2,R497*,213934,Cervix,Loeys-Dietz syndrome,nonsense,LDS,497
 TGFBR2,R497*,213934,Colon,Loeys-Dietz syndrome,nonsense,LDS,497
 TGFBR2,R522*,213934,Cervix,Loeys-Dietz syndrome,nonsense,LDS,522
 TGFBR2,R522*,213934,Colon,Loeys-Dietz syndrome,nonsense,LDS,522
-TGFBR2,R497*,213934,Cervix,Loeys-Dietz syndrome 2,nonsense,LDS2,497
-TGFBR2,R497*,213934,Colon,Loeys-Dietz syndrome 2,nonsense,LDS2,497
-TGFBR2,R522*,213934,Cervix,Loeys-Dietz syndrome 2,nonsense,LDS2,522
-TGFBR2,R522*,213934,Colon,Loeys-Dietz syndrome 2,nonsense,LDS2,522
+TGFBR2,R497*,213934,Cervix,Loeys-Dietz syndrome 2,nonsense,LDS,497
+TGFBR2,R497*,213934,Colon,Loeys-Dietz syndrome 2,nonsense,LDS,497
+TGFBR2,R522*,213934,Cervix,Loeys-Dietz syndrome 2,nonsense,LDS,522
+TGFBR2,R522*,213934,Colon,Loeys-Dietz syndrome 2,nonsense,LDS,522
 TGFBR2,D524N,180541,Pancreas,Marfan syndrome,missense variant,MFS,524
 TGFBR2,D549N,180541,Pancreas,Marfan syndrome,missense variant,MFS,549
-TGFBR2,D524N,180541,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS2,524
-TGFBR2,D549N,180541,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS2,549
+TGFBR2,D524N,180541,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS,524
+TGFBR2,D549N,180541,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS,549
 TGFBR2,W287R,165391,Pancreas,Loeys-Dietz syndrome,missense variant,LDS,287
 TGFBR2,W312R,165391,Pancreas,Loeys-Dietz syndrome,missense variant,LDS,312
 TGFBR2,E499*,44657,Utero,Loeys-Dietz syndrome,nonsense,LDS,499
@@ -184,18 +184,18 @@ TGFBR2,R495*,12519,Pancreas,Loeys-Dietz syndrome,nonsense,LDS,495
 TGFBR2,R495*,12519,Estomago,Loeys-Dietz syndrome,nonsense,LDS,495
 TGFBR2,R520*,12519,Pancreas,Loeys-Dietz syndrome,nonsense,LDS,520
 TGFBR2,R520*,12519,Estomago,Loeys-Dietz syndrome,nonsense,LDS,520
-TGFBR2,R495*,12519,Pancreas,Loeys-Dietz syndrome 2,nonsense,LDS2,495
-TGFBR2,R495*,12519,Estomago,Loeys-Dietz syndrome 2,nonsense,LDS2,495
-TGFBR2,R520*,12519,Pancreas,Loeys-Dietz syndrome 2,nonsense,LDS2,520
-TGFBR2,R520*,12519,Estomago,Loeys-Dietz syndrome 2,nonsense,LDS2,520
+TGFBR2,R495*,12519,Pancreas,Loeys-Dietz syndrome 2,nonsense,LDS,495
+TGFBR2,R495*,12519,Estomago,Loeys-Dietz syndrome 2,nonsense,LDS,495
+TGFBR2,R520*,12519,Pancreas,Loeys-Dietz syndrome 2,nonsense,LDS,520
+TGFBR2,R520*,12519,Estomago,Loeys-Dietz syndrome 2,nonsense,LDS,520
 TGFBR2,R495*,12519,Pancreas,"Colorectal cancer, hereditary nonpolyposis, type 6",nonsense,HNPCC6,495
 TGFBR2,R495*,12519,Estomago,"Colorectal cancer, hereditary nonpolyposis, type 6",nonsense,HNPCC6,495
 TGFBR2,R520*,12519,Pancreas,"Colorectal cancer, hereditary nonpolyposis, type 6",nonsense,HNPCC6,520
 TGFBR2,R520*,12519,Estomago,"Colorectal cancer, hereditary nonpolyposis, type 6",nonsense,HNPCC6,520
-TGFBR2,R460H,12515,Utero,Loeys-Dietz syndrome 2,missense variant,LDS2,460
-TGFBR2,R485H,12515,Utero,Loeys-Dietz syndrome 2,missense variant,LDS2,485
-TGFBR2,R460C,12514,Cabeza,Loeys-Dietz syndrome 2,missense variant,LDS2,460
-TGFBR2,R485C,12514,Cabeza,Loeys-Dietz syndrome 2,missense variant,LDS2,485
+TGFBR2,R460H,12515,Utero,Loeys-Dietz syndrome 2,missense variant,LDS,460
+TGFBR2,R485H,12515,Utero,Loeys-Dietz syndrome 2,missense variant,LDS,485
+TGFBR2,R460C,12514,Cabeza,Loeys-Dietz syndrome 2,missense variant,LDS,460
+TGFBR2,R485C,12514,Cabeza,Loeys-Dietz syndrome 2,missense variant,LDS,485
 TGFBR2,R528C,12512,Pulmon,Loeys-Dietz syndrome,missense variant,LDS,528
 TGFBR2,R528C,12512,Cabeza,Loeys-Dietz syndrome,missense variant,LDS,528
 TGFBR2,R528C,12512,Pancreas,Loeys-Dietz syndrome,missense variant,LDS,528
@@ -206,16 +206,16 @@ TGFBR2,R553C,12512,Pancreas,Loeys-Dietz syndrome,missense variant,LDS,553
 TGFBR2,R553C,12512,Colon,Loeys-Dietz syndrome,missense variant,LDS,553
 TGFBR2,R537C,12512,Pancreas,Loeys-Dietz syndrome,missense variant,LDS,537
 TGFBR2,R537C,12512,Cervix,Loeys-Dietz syndrome,missense variant,LDS,537
-TGFBR2,R528C,12512,Pulmon,Loeys-Dietz syndrome 2,missense variant,LDS2,528
-TGFBR2,R528C,12512,Cabeza,Loeys-Dietz syndrome 2,missense variant,LDS2,528
-TGFBR2,R528C,12512,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS2,528
-TGFBR2,R528C,12512,Colon,Loeys-Dietz syndrome 2,missense variant,LDS2,528
-TGFBR2,R553C,12512,Pulmon,Loeys-Dietz syndrome 2,missense variant,LDS2,553
-TGFBR2,R553C,12512,Cabeza,Loeys-Dietz syndrome 2,missense variant,LDS2,553
-TGFBR2,R553C,12512,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS2,553
-TGFBR2,R553C,12512,Colon,Loeys-Dietz syndrome 2,missense variant,LDS2,553
-TGFBR2,R537C,12512,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS2,537
-TGFBR2,R537C,12512,Cervix,Loeys-Dietz syndrome 2,missense variant,LDS2,537
+TGFBR2,R528C,12512,Pulmon,Loeys-Dietz syndrome 2,missense variant,LDS,528
+TGFBR2,R528C,12512,Cabeza,Loeys-Dietz syndrome 2,missense variant,LDS,528
+TGFBR2,R528C,12512,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS,528
+TGFBR2,R528C,12512,Colon,Loeys-Dietz syndrome 2,missense variant,LDS,528
+TGFBR2,R553C,12512,Pulmon,Loeys-Dietz syndrome 2,missense variant,LDS,553
+TGFBR2,R553C,12512,Cabeza,Loeys-Dietz syndrome 2,missense variant,LDS,553
+TGFBR2,R553C,12512,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS,553
+TGFBR2,R553C,12512,Colon,Loeys-Dietz syndrome 2,missense variant,LDS,553
+TGFBR2,R537C,12512,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS,537
+TGFBR2,R537C,12512,Cervix,Loeys-Dietz syndrome 2,missense variant,LDS,537
 TGFBR2,R528H,12511,Colon,Loeys-Dietz syndrome,missense variant,LDS,528
 TGFBR2,R528H,12511,Pancreas,Loeys-Dietz syndrome,missense variant,LDS,528
 TGFBR2,R528H,12511,Estomago,Loeys-Dietz syndrome,missense variant,LDS,528
@@ -223,7 +223,7 @@ TGFBR2,R553H,12511,Colon,Loeys-Dietz syndrome,missense variant,LDS,553
 TGFBR2,R553H,12511,Pancreas,Loeys-Dietz syndrome,missense variant,LDS,553
 TGFBR2,R553H,12511,Estomago,Loeys-Dietz syndrome,missense variant,LDS,553
 TGFBR2,R537H,12511,Utero,Loeys-Dietz syndrome,missense variant,LDS,537
-TGFBR2,R537C,12507,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS2,537
-TGFBR2,R537C,12507,Cervix,Loeys-Dietz syndrome 2,missense variant,LDS2,537
-TGFBR2,R562C,12507,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS2,562
-TGFBR2,R562C,12507,Cervix,Loeys-Dietz syndrome 2,missense variant,LDS2,562
+TGFBR2,R537C,12507,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS,537
+TGFBR2,R537C,12507,Cervix,Loeys-Dietz syndrome 2,missense variant,LDS,537
+TGFBR2,R562C,12507,Pancreas,Loeys-Dietz syndrome 2,missense variant,LDS,562
+TGFBR2,R562C,12507,Cervix,Loeys-Dietz syndrome 2,missense variant,LDS,562
