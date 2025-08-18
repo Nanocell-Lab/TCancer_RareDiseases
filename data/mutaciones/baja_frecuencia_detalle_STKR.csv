@@ -1,4 +1,0 @@
-Gen_names,tipo_cancer,project_code,mutaciones
-BMPR1A,Ovario,OV-US,['K372I']
-BMPR2,Estomago,STAD-US,['R147Q']
-TGFBR1,Pulmon,LUAD-US,"['S416F', 'S347F', 'S339F', 'S420F']"
