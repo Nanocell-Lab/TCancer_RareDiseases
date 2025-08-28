@@ -685,3 +685,6 @@ data/mutaciones/df_frecuencias_mut_genes_totales.csv
 data/mutaciones/mutaciones_aa_DLX
 data/mutaciones/mutaciones_aa_EGFR
 data/mutaciones/mutaciones_aa_sp
+data/ClinVar/clinvar_20250817.vcf.gz
+data/ClinVar/clinvar_20250824.vcf.gz
+data/ClinVar/clinvar.vcf.gz
