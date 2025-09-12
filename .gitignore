@@ -688,3 +688,7 @@ data/mutaciones/mutaciones_aa_sp
 data/ClinVar/clinvar_20250817.vcf.gz
 data/ClinVar/clinvar_20250824.vcf.gz
 data/ClinVar/clinvar.vcf.gz
+data/ClinVar/ClinVarVCVRelease_00-latest.xml.gz
+data/ClinVar/variant_summary.txt.gz
+data/Cancer/cancer_data_kinase.csv
+data/Cancer/mut_cancer_kinase.csv
