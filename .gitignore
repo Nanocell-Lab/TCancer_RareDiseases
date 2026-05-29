@@ -692,3 +692,4 @@ data/ClinVar/ClinVarVCVRelease_00-latest.xml.gz
 data/ClinVar/variant_summary.txt.gz
 data/Cancer/cancer_data_kinase.csv
 data/Cancer/mut_cancer_kinase.csv
+*.Identifier
