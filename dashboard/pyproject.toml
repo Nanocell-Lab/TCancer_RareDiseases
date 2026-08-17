@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rare-oncology-dashboard"
+version = "1.0.0"
+description = "Interactive dashboard for rare-oncology 2.1 SQLite analyses."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "numpy>=1.26,<3",
+  "plotly>=5.24,<7",
+  "streamlit>=1.61,<2",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pyright]
+include = ["app.py", "src", "tests"]
+extraPaths = ["src"]
+venvPath = "."
+venv = ".venv"
+pythonVersion = "3.10"
+typeCheckingMode = "standard"

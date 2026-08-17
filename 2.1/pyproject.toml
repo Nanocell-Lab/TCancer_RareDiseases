@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rare-oncology"
+version = "2.1.0"
+description = "ClinVar/GDC integration with multilayer rare-disease and oncology evidence."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Cancer Molecular Dynamics Laboratory" }
+]
+dependencies = []
+
+[project.optional-dependencies]
+plots = [
+  "geneview==0.8.2",
+  "matplotlib>=3.8",
+]
+
+[project.scripts]
+rare-oncology = "rare_oncology.cli:main"
+rare-oncology-build-regulatory-tables = "rare_oncology.regulatory_tables:main"
+rare-oncology-string = "rare_oncology.string_cli:main"
+rare-oncology-structure = "rare_oncology.structure_cli:main"
+rare-oncology-global = "rare_oncology.global_cli:main"
+rare-oncology-complete = "rare_oncology.completion_cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
