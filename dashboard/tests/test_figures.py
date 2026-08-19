@@ -3,6 +3,10 @@ from __future__ import annotations
 import unittest
 
 from rare_oncology_dashboard.figures import (
+    global_actionability_figure,
+    global_convergence_figure,
+    global_family_evidence_figure,
+    global_gene_landscape_figure,
     heatmap_figure,
     lollipop_figure,
     string_evidence_heatmap_figure,
@@ -14,6 +18,58 @@ from rare_oncology_dashboard.figures import (
 
 
 class FigureTests(unittest.TestCase):
+    def test_global_figures_preserve_evidence_layers_and_family_axes(self) -> None:
+        genes = [
+            {
+                "gene": "EGFR",
+                "protein_family": "EGFR/ERBB family",
+                "family_group": "Receptor tyrosine kinases",
+                "shared_variant_count": 3,
+                "confirmed_shared_count": 1,
+                "max_variant_patient_count": 14,
+                "rare_disease_count": 2,
+                "cancer_project_count": 3,
+                "source_coverage_count": 4,
+                "variant_therapy_count": 2,
+                "active_regulatory_count": 1,
+                "clinical_trial_count": 3,
+                "mechanism_target_count": 1,
+                "actionability_tier": "Variant-specific evidence",
+            }
+        ]
+        families = [
+            {
+                "family_group": "Receptor tyrosine kinases",
+                "protein_family": "EGFR/ERBB family",
+                "shared_variant_count": 3,
+                "confirmed_shared_count": 1,
+            }
+        ]
+
+        landscape = global_gene_landscape_figure(genes).to_dict()
+        self.assertEqual(landscape["data"][0]["text"], ["EGFR"])
+        self.assertEqual(landscape["data"][0]["x"], [3])
+        family = global_family_evidence_figure(families).to_dict()
+        self.assertEqual(len(family["data"]), 2)
+        actionability = global_actionability_figure(genes).to_dict()
+        self.assertEqual(actionability["data"][0]["z"], [[2, 1, 3, 1]])
+        convergence = global_convergence_figure(
+            {
+                "rows": ["Rare disease"],
+                "families": ["EGFR/ERBB family"],
+                "values": [[3]],
+            },
+            title="Convergence",
+            row_title="Rare disease",
+        ).to_dict()
+        self.assertEqual(convergence["data"][0]["z"], [[3]])
+        for figure in (
+            global_gene_landscape_figure(genes),
+            global_family_evidence_figure(families),
+            global_actionability_figure(genes),
+        ):
+            figure.to_json()
+
     def test_lollipop_contains_baseline_stems_and_category(self) -> None:
         figure = lollipop_figure(
             [

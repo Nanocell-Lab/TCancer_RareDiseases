@@ -2,10 +2,24 @@
 
 Independent Streamlit dashboard for the analyses stored by `2.1`.
 
+A fresh clone opens with compact read-only examples for **EGFR, TGFBR1, ACVR1
+and PDGFRB** from `../2.1/bootstrap/rare_oncology_demo.sqlite3`. New analyses
+continue to use the writable master under `../2.1/results`; the seed is never
+modified.
+
 ## What it does
 
+- Opens on a read-only **Global overview** that selects the newest molecular
+  snapshot per gene, links only therapy snapshots with the same stored molecular
+  signature, and summarizes genes, protein families, actionability layers and
+  rare-disease/cancer-project convergence without any web request.
+- Filters the global atlas by curated receptor groups from `../2.1/gene_lists`,
+  exports its gene/family projections, and drills directly into the selected
+  gene's immutable evidence record.
 - Discovers every compatible `*.sqlite3` under `../2.1/results` and reads it in
   SQLite read-only mode.
+- Also discovers the tracked clone bootstrap and automatically adds its
+  normalized FDA/EMA tables to newly requested therapy runs.
 - Lists the genes already present and opens the newest molecular and therapy
   snapshots without calling the web.
 - If an HGNC symbol is missing, **Load / run** calls the existing

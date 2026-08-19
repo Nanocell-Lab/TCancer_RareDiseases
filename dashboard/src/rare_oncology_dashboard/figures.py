@@ -14,6 +14,237 @@ COLORS = {
     "Shared": "#F97316",
     "Oncology only": "#A855F7",
 }
+ACTIONABILITY_COLORS = {
+    "Variant-specific evidence": "#15803D",
+    "Active regulatory evidence": "#0F766E",
+    "Clinical trial": "#2563EB",
+    "Mechanism target": "#7C3AED",
+    "No therapy evidence": "#94A3B8",
+}
+
+
+def global_gene_landscape_figure(
+    rows: Sequence[Mapping[str, Any]],
+) -> go.Figure:
+    """Plot gene-level recurrence, confirmation and actionability together."""
+
+    if not rows:
+        return empty_figure("No compatible gene analyses are available.")
+    figure = go.Figure()
+    for tier, color in ACTIONABILITY_COLORS.items():
+        selected = [row for row in rows if row.get("actionability_tier") == tier]
+        if not selected:
+            continue
+        figure.add_trace(
+            go.Scatter(
+                x=[row.get("shared_variant_count", 0) for row in selected],
+                y=[row.get("max_variant_patient_count", 0) for row in selected],
+                mode="markers+text",
+                name=tier,
+                text=[row.get("gene", "") for row in selected],
+                textposition="top center",
+                marker={
+                    "color": color,
+                    "size": [
+                        min(34, 11 + 2 * int(row.get("rare_disease_count", 0)))
+                        for row in selected
+                    ],
+                    "line": {
+                        "color": [
+                            "#111827"
+                            if int(row.get("confirmed_shared_count", 0))
+                            else "#FFFFFF"
+                            for row in selected
+                        ],
+                        "width": [
+                            2.5 if int(row.get("confirmed_shared_count", 0)) else 1
+                            for row in selected
+                        ],
+                    },
+                    "opacity": 0.86,
+                },
+                customdata=[
+                    [
+                        row.get("protein_family", ""),
+                        row.get("confirmed_shared_count", 0),
+                        row.get("rare_disease_count", 0),
+                        row.get("cancer_project_count", 0),
+                        row.get("source_coverage_count", 0),
+                    ]
+                    for row in selected
+                ],
+                hovertemplate=(
+                    "<b>%{text}</b><br>%{customdata[0]}"
+                    "<br>Shared variants: %{x}"
+                    "<br>Confirmed shared: %{customdata[1]}"
+                    "<br>Maximum cancer patients: %{y}"
+                    "<br>Rare diseases: %{customdata[2]}"
+                    "<br>Cancer projects: %{customdata[3]}"
+                    "<br>Sources represented: %{customdata[4]}"
+                    "<extra>%{fullData.name}</extra>"
+                ),
+            )
+        )
+    figure.update_layout(
+        title="Gene landscape: shared variation, recurrence and actionability",
+        xaxis_title="Shared rare-disease/oncology protein changes",
+        yaxis_title="Maximum cancer-patient count for one shared mutation",
+        height=590,
+        hovermode="closest",
+        legend={"orientation": "h", "y": 1.16, "x": 0},
+        margin={"l": 70, "r": 30, "t": 110, "b": 65},
+    )
+    figure.update_xaxes(rangemode="tozero", gridcolor="#E2E8F0")
+    figure.update_yaxes(rangemode="tozero", gridcolor="#E2E8F0")
+    return figure
+
+
+def global_family_evidence_figure(
+    rows: Sequence[Mapping[str, Any]],
+) -> go.Figure:
+    """Compare shared and genomically confirmed variants across families."""
+
+    if not rows:
+        return empty_figure("No protein-family summaries are available.")
+    selected = sorted(
+        rows,
+        key=lambda row: (
+            int(row.get("shared_variant_count", 0)),
+            str(row.get("protein_family", "")),
+        ),
+    )[-18:]
+    figure = go.Figure()
+    figure.add_trace(
+        go.Bar(
+            x=[row.get("shared_variant_count", 0) for row in selected],
+            y=[row.get("protein_family", "") for row in selected],
+            name="Shared candidate variants",
+            orientation="h",
+            marker_color="#FDBA74",
+            customdata=[row.get("family_group", "") for row in selected],
+            hovertemplate="%{y}<br>%{customdata}<br>Shared: %{x}<extra></extra>",
+        )
+    )
+    figure.add_trace(
+        go.Bar(
+            x=[row.get("confirmed_shared_count", 0) for row in selected],
+            y=[row.get("protein_family", "") for row in selected],
+            name="Genomically confirmed",
+            orientation="h",
+            marker_color="#15803D",
+            hovertemplate="%{y}<br>Confirmed: %{x}<extra></extra>",
+        )
+    )
+    figure.update_layout(
+        title="Shared mutation burden by protein family",
+        barmode="overlay",
+        xaxis_title="Gene-specific shared protein changes",
+        yaxis_title=None,
+        height=max(450, 30 * len(selected)),
+        legend={"orientation": "h", "y": 1.1, "x": 0},
+        margin={"l": 180, "r": 25, "t": 90, "b": 55},
+    )
+    return figure
+
+
+def global_actionability_figure(
+    rows: Sequence[Mapping[str, Any]],
+    *,
+    top: int = 35,
+) -> go.Figure:
+    """Render non-equivalent evidence layers as a gene-by-layer heatmap."""
+
+    if top < 1:
+        raise ValueError("top must be positive")
+    ordered = sorted(
+        rows,
+        key=lambda row: (
+            -int(row.get("variant_therapy_count", 0)),
+            -int(row.get("active_regulatory_count", 0)),
+            -int(row.get("clinical_trial_count", 0)),
+            -int(row.get("mechanism_target_count", 0)),
+            -int(row.get("shared_variant_count", 0)),
+            str(row.get("gene", "")),
+        ),
+    )[:top]
+    if not ordered:
+        return empty_figure("No therapy evidence is linked to compatible analyses.")
+    columns = [
+        "Variant-specific",
+        "Regulatory",
+        "Clinical trial",
+        "Mechanism target",
+    ]
+    values = [
+        [
+            int(row.get("variant_therapy_count", 0)),
+            int(row.get("active_regulatory_count", 0)),
+            int(row.get("clinical_trial_count", 0)),
+            int(row.get("mechanism_target_count", 0)),
+        ]
+        for row in ordered
+    ]
+    figure = go.Figure(
+        go.Heatmap(
+            z=values,
+            x=columns,
+            y=[row.get("gene", "") for row in ordered],
+            colorscale=[
+                [0.0, "#F8FAFC"],
+                [0.2, "#DBEAFE"],
+                [0.55, "#60A5FA"],
+                [1.0, "#1D4ED8"],
+            ],
+            colorbar={"title": "Records"},
+            hovertemplate="%{y}<br>%{x}: %{z}<extra></extra>",
+            xgap=2,
+            ygap=2,
+        )
+    )
+    figure.update_layout(
+        title=f"Top {len(ordered)} genes across separate therapy-evidence layers",
+        xaxis_title=None,
+        yaxis_title=None,
+        height=max(480, 25 * len(ordered)),
+        margin={"l": 80, "r": 25, "t": 70, "b": 75},
+    )
+    return figure
+
+
+def global_convergence_figure(
+    matrix: Mapping[str, Any],
+    *,
+    title: str,
+    row_title: str,
+) -> go.Figure:
+    """Render rare-disease or cancer-project convergence across families."""
+
+    rows = list(matrix.get("rows", []))
+    families = list(matrix.get("families", []))
+    values = list(matrix.get("values", []))
+    if not rows or not families:
+        return empty_figure("No cross-family convergence is available for this scope.")
+    figure = go.Figure(
+        go.Heatmap(
+            z=values,
+            x=families,
+            y=rows,
+            colorscale="Oranges",
+            colorbar={"title": "Shared associations"},
+            xgap=1,
+            ygap=1,
+            hovertemplate="%{y}<br>%{x}<br>Shared associations: %{z}<extra></extra>",
+        )
+    )
+    figure.update_layout(
+        title=title,
+        xaxis_title="Protein family",
+        yaxis_title=row_title,
+        height=max(500, 28 * len(rows)),
+        margin={"l": 170, "r": 30, "t": 75, "b": 145},
+    )
+    figure.update_xaxes(tickangle=-35)
+    return figure
 
 
 def empty_figure(message: str) -> go.Figure:

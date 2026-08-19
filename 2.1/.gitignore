@@ -6,5 +6,6 @@ results/
 downloads/
 data/
 *.sqlite*
+!bootstrap/rare_oncology_demo.sqlite3
 .DS_Store
 .Rhistory

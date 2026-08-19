@@ -14,6 +14,7 @@ from typing import Any, Mapping
 ANALYSIS_KIND = "mutation_analysis"
 THERAPY_KIND = "therapy_analysis"
 KNOWN_KINDS = (ANALYSIS_KIND, THERAPY_KIND)
+SUPPORTED_EXECUTION_SCHEMA_VERSIONS = (1,)
 
 
 class CatalogError(RuntimeError):
@@ -32,6 +33,7 @@ class ExecutionSnapshot:
     created_at: str
     last_accessed_at: str
     cache_hit_count: int
+    schema_version: int
 
     @property
     def identity(self) -> str:
@@ -82,14 +84,24 @@ class GeneCatalogEntry:
         return self.therapy_runs > 0
 
 
-def discover_databases(results_root: str | Path, master: str | Path) -> tuple[Path, ...]:
-    """Return execution SQLite files under 2.1/results plus the master if present."""
+def discover_databases(
+    results_root: str | Path,
+    master: str | Path,
+    *,
+    additional_roots: tuple[str | Path, ...] = (),
+) -> tuple[Path, ...]:
+    """Return generated and tracked bootstrap SQLite files plus the master."""
 
     root = Path(results_root).expanduser().resolve()
     master_path = Path(master).expanduser().resolve()
+    roots = (root,) + tuple(
+        Path(value).expanduser().resolve() for value in additional_roots
+    )
     paths = {
         path.resolve()
-        for path in root.rglob("*.sqlite3")
+        for search_root in roots
+        if search_root.is_dir()
+        for path in search_root.rglob("*.sqlite3")
         if path.is_file() and not path.name.endswith(("-wal", "-shm"))
     }
     if master_path.is_file():
@@ -193,39 +205,15 @@ class SQLiteCatalog:
                 rows = connection.execute(
                     """
                     SELECT id, kind, gene, parameter_hash, parameters_json,
-                           result_json, created_at, last_accessed_at, cache_hit_count
+                           result_json, created_at, last_accessed_at, cache_hit_count,
+                           schema_version
                     FROM execution_cache
-                    WHERE gene = ? AND kind = ?
+                    WHERE gene = ? AND kind = ? AND schema_version = 1
                     ORDER BY created_at DESC, id DESC
                     """,
                     (normalized_gene, kind),
                 ).fetchall()
-            for row in rows:
-                try:
-                    parameters = json.loads(str(row["parameters_json"]))
-                    result = json.loads(str(row["result_json"]))
-                except (TypeError, json.JSONDecodeError) as exc:
-                    raise CatalogError(
-                        f"Invalid JSON in {path}, execution {row['id']}: {exc}"
-                    ) from exc
-                if not isinstance(parameters, dict) or not isinstance(result, dict):
-                    raise CatalogError(
-                        f"Execution {row['id']} in {path} does not contain JSON objects"
-                    )
-                snapshots.append(
-                    ExecutionSnapshot(
-                        database_path=path,
-                        execution_id=int(row["id"]),
-                        kind=str(row["kind"]),
-                        gene=str(row["gene"]),
-                        parameter_hash=str(row["parameter_hash"]),
-                        parameters=parameters,
-                        result=result,
-                        created_at=str(row["created_at"]),
-                        last_accessed_at=str(row["last_accessed_at"]),
-                        cache_hit_count=int(row["cache_hit_count"]),
-                    )
-                )
+            snapshots.extend(_execution_snapshot(path, row) for row in rows)
         snapshots.sort(
             key=lambda snapshot: (
                 _parse_iso(snapshot.created_at),
@@ -234,6 +222,31 @@ class SQLiteCatalog:
             ),
             reverse=True,
         )
+        return tuple(snapshots)
+
+    def all_snapshots(self, kind: str) -> tuple[ExecutionSnapshot, ...]:
+        """Load every supported snapshot of one kind with one query per database."""
+
+        if kind not in KNOWN_KINDS:
+            raise ValueError(f"Unknown execution kind: {kind}")
+        snapshots: list[ExecutionSnapshot] = []
+        for path in self.available_databases():
+            if not _has_table(path, "execution_cache"):
+                continue
+            with closing(_connect_read_only(path)) as connection:
+                rows = connection.execute(
+                    """
+                    SELECT id, kind, gene, parameter_hash, parameters_json,
+                           result_json, created_at, last_accessed_at, cache_hit_count,
+                           schema_version
+                    FROM execution_cache
+                    WHERE kind = ? AND schema_version = 1
+                    ORDER BY created_at DESC, id DESC
+                    """,
+                    (kind,),
+                ).fetchall()
+            snapshots.extend(_execution_snapshot(path, row) for row in rows)
+        snapshots.sort(key=_execution_sort_key, reverse=True)
         return tuple(snapshots)
 
     def latest(self, gene: str, kind: str) -> ExecutionSnapshot | None:
@@ -310,6 +323,51 @@ def _connect_read_only(path: Path) -> sqlite3.Connection:
     connection.row_factory = sqlite3.Row
     connection.execute("PRAGMA query_only = ON")
     return connection
+
+
+def _execution_snapshot(path: Path, row: sqlite3.Row) -> ExecutionSnapshot:
+    """Reconstruct one validated execution snapshot from a SQLite row."""
+
+    try:
+        parameters = json.loads(str(row["parameters_json"]))
+        result = json.loads(str(row["result_json"]))
+    except (TypeError, json.JSONDecodeError) as exc:
+        raise CatalogError(
+            f"Invalid JSON in {path}, execution {row['id']}: {exc}"
+        ) from exc
+    if not isinstance(parameters, dict) or not isinstance(result, dict):
+        raise CatalogError(
+            f"Execution {row['id']} in {path} does not contain JSON objects"
+        )
+    schema_version = int(row["schema_version"])
+    if schema_version not in SUPPORTED_EXECUTION_SCHEMA_VERSIONS:
+        raise CatalogError(
+            f"Execution {row['id']} in {path} uses unsupported schema version "
+            f"{schema_version}"
+        )
+    return ExecutionSnapshot(
+        database_path=path,
+        execution_id=int(row["id"]),
+        kind=str(row["kind"]),
+        gene=str(row["gene"]),
+        parameter_hash=str(row["parameter_hash"]),
+        parameters=parameters,
+        result=result,
+        created_at=str(row["created_at"]),
+        last_accessed_at=str(row["last_accessed_at"]),
+        cache_hit_count=int(row["cache_hit_count"]),
+        schema_version=schema_version,
+    )
+
+
+def _execution_sort_key(snapshot: ExecutionSnapshot) -> tuple[datetime, int, str]:
+    """Return the deterministic newest-first ordering key for executions."""
+
+    return (
+        _parse_iso(snapshot.created_at),
+        snapshot.execution_id,
+        str(snapshot.database_path),
+    )
 
 
 def _has_table(path: Path, table: str) -> bool:

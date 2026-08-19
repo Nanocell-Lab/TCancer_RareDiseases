@@ -110,6 +110,25 @@ for association in therapy_result.variant_therapy_evidence:
 
 ## Historial SQLite y ejecución cache-first
 
+### Functional Git clone
+
+`bootstrap/` is a tracked, sub-10 MiB read-only starter bundle. It provides
+stored molecular and therapy examples for EGFR, TGFBR1, ACVR1 and PDGFRB,
+available STRING networks, plus normalized FDA/EMA tables. The dashboard loads
+the seed automatically and always writes new executions under `results/`.
+
+For direct CLI runs, the tracked regulatory tables can be included with:
+
+```bash
+rare-oncology EGFR --therapies \
+  --regulatory-file fda=bootstrap/regulatory/fda_biomarkers.csv \
+  --regulatory-file ema=bootstrap/regulatory/ema_labels.csv
+```
+
+See `bootstrap/README.md` and `bootstrap/manifest.json` for compaction and
+provenance details. Rebuild it from complete local snapshots with
+`python scripts/build_bootstrap_bundle.py`.
+
 La CLI usa por defecto `OUTPUT_DIR/rare_oncology.sqlite3`. Antes de consultar
 ClinVar, GDC o las fuentes terapéuticas busca la ejecución compatible más
 reciente. Si no existe o tiene más de 24 horas, consulta las APIs y guarda un

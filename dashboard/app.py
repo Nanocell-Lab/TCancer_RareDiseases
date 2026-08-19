@@ -21,6 +21,7 @@ import streamlit as st  # noqa: E402
 from rare_oncology_dashboard.catalog import (  # noqa: E402
     ANALYSIS_KIND,
     THERAPY_KIND,
+    CatalogError,
     ExecutionSnapshot,
     SQLiteCatalog,
     StringNetworkSnapshot,
@@ -43,6 +44,15 @@ from rare_oncology_dashboard.figures import (  # noqa: E402
     string_partner_scores_figure,
     structure_overlay_figure,
     therapy_summary_figure,
+    global_actionability_figure,
+    global_convergence_figure,
+    global_family_evidence_figure,
+    global_gene_landscape_figure,
+)
+from rare_oncology_dashboard.global_analysis import (  # noqa: E402
+    build_global_overview,
+    convergence_matrix,
+    load_family_catalog,
 )
 from rare_oncology_dashboard.runner import (  # noqa: E402
     AnalysisRunner,
@@ -73,6 +83,8 @@ from rare_oncology_dashboard.transforms import (  # noqa: E402
 
 RESULTS_ROOT = PROJECT_ROOT / "2.1" / "results"
 DEFAULT_MASTER = RESULTS_ROOT / "dashboard_master.sqlite3"
+FAMILY_CATALOG_ROOT = PROJECT_ROOT / "2.1" / "gene_lists"
+BOOTSTRAP_ROOT = PROJECT_ROOT / "2.1" / "bootstrap"
 
 
 def main() -> None:
@@ -91,7 +103,11 @@ def main() -> None:
         help="New 2.1 executions are written here. Existing databases remain read-only.",
     )
     master_path = Path(master_text).expanduser().resolve()
-    discovered = discover_databases(RESULTS_ROOT, master_path)
+    discovered = discover_databases(
+        RESULTS_ROOT,
+        master_path,
+        additional_roots=(BOOTSTRAP_ROOT,),
+    )
     selected_paths = _database_selector(discovered, master_path)
     catalog = SQLiteCatalog(tuple(selected_paths))
     entries = catalog.genes()
@@ -99,8 +115,32 @@ def main() -> None:
     genes = list(entry_by_gene)
 
     st.sidebar.markdown("---")
+    workspace = st.sidebar.radio(
+        "Workspace",
+        ("Global overview", "Gene explorer"),
+        key="workspace",
+        help="Global analyses read stored snapshots only; Gene explorer can run 2.1 explicitly.",
+    )
+    if workspace == "Global overview":
+        _global_header(len(genes), len(selected_paths))
+        for warning in catalog.warnings():
+            st.warning(warning)
+        _render_global_overview(catalog)
+        return
+
+    st.sidebar.markdown("---")
     st.sidebar.subheader("Gene selection")
-    preferred_index = genes.index("TGFBR1") if "TGFBR1" in genes else 0
+    requested_from_global = st.session_state.pop("global_gene_target", None)
+    preferred_gene = (
+        requested_from_global
+        if requested_from_global in genes
+        else "TGFBR1"
+        if "TGFBR1" in genes
+        else genes[0]
+        if genes
+        else ""
+    )
+    preferred_index = genes.index(preferred_gene) if preferred_gene in genes else 0
     selected_gene = st.sidebar.selectbox(
         "Stored genes",
         options=genes or [""],
@@ -859,6 +899,312 @@ def _download_table(
     )
 
 
+def _global_header(gene_count: int, database_count: int) -> None:
+    """Render the corpus-level landing header without initiating data retrieval."""
+
+    st.markdown(
+        """
+        <div class="hero global-hero">
+          <div class="eyebrow">RARE DISEASE × ONCOLOGY · EVIDENCE ATLAS</div>
+          <h1>Global protein-family landscape</h1>
+          <p>Explore convergent variants, recurrence and actionability across the
+             molecular snapshots already stored by the 2.1 pipeline.</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        f"""
+        <div class="scope-strip">
+          <span><strong>{gene_count}</strong> genes in catalog</span>
+          <span><strong>{database_count}</strong> linked SQLite databases</span>
+          <span><strong>Read-only</strong> global analysis</span>
+          <span><strong>No web calls</strong> on this page</span>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def _render_global_overview(catalog: SQLiteCatalog) -> None:
+    """Build and render corpus-level projections from stored 2.1 snapshots."""
+
+    try:
+        analyses = catalog.all_snapshots(ANALYSIS_KIND)
+        therapies = catalog.all_snapshots(THERAPY_KIND)
+        family_catalog = load_family_catalog(FAMILY_CATALOG_ROOT)
+        overview = build_global_overview(analyses, therapies, family_catalog)
+    except (CatalogError, OSError, ValueError) as exc:
+        st.error(f"The global overview could not be built: {exc}")
+        return
+
+    if not overview.gene_summaries:
+        st.info(
+            "No compatible molecular snapshots are stored yet. Open **Gene explorer** "
+            "and run a gene to populate the 2.1 master SQLite database."
+        )
+        st.caption(
+            "The landing page never starts external-source queries automatically."
+        )
+        return
+
+    gene_rows = [item.to_dict() for item in overview.gene_summaries]
+    family_groups = sorted({str(row["family_group"]) for row in gene_rows})
+    selected_groups = st.multiselect(
+        "Protein-family scope",
+        family_groups,
+        default=family_groups,
+        help=(
+            "Curated receptor groups come from 2.1/gene_lists. Genes outside these "
+            "lists remain visible under Other analyzed proteins."
+        ),
+    )
+    selected_set = set(selected_groups)
+    filtered_genes = [
+        row for row in gene_rows if str(row["family_group"]) in selected_set
+    ]
+    filtered_families = [
+        item.to_dict()
+        for item in overview.family_summaries
+        if item.family_group in selected_set
+    ]
+
+    shared_total = sum(int(row["shared_variant_count"]) for row in filtered_genes)
+    confirmed_total = sum(
+        int(row["confirmed_shared_count"]) for row in filtered_genes
+    )
+    actionable_total = sum(
+        str(row["actionability_tier"]) != "No therapy evidence"
+        for row in filtered_genes
+    )
+    therapy_compatible = sum(
+        row["therapy_execution_id"] is not None for row in filtered_genes
+    )
+    metric_columns = st.columns(6)
+    metric_columns[0].metric("Genes in scope", len(filtered_genes))
+    metric_columns[1].metric("Shared variants", shared_total)
+    metric_columns[2].metric("Genomically confirmed", confirmed_total)
+    metric_columns[3].metric("Genes with therapy evidence", actionable_total)
+    metric_columns[4].metric("Compatible therapy snapshots", therapy_compatible)
+    metric_columns[5].metric("Contributing databases", overview.source_database_count)
+    st.caption(
+        f"Newest molecular snapshot per gene · {overview.analysis_snapshot_count} stored "
+        f"molecular executions inspected · {overview.unmatched_therapy_gene_count} gene(s) "
+        "have therapy snapshots linked to a different molecular signature."
+    )
+
+    if not filtered_genes:
+        st.warning("Select at least one protein-family group to display the atlas.")
+        return
+
+    landscape_tab, family_tab, therapy_tab, convergence_tab, data_tab = st.tabs(
+        [
+            "Gene landscape",
+            "Protein families",
+            "Actionability",
+            "Disease and cancer convergence",
+            "Data and provenance",
+        ]
+    )
+    with landscape_tab:
+        st.markdown(
+            '<div class="section-kicker">GLOBAL SIGNAL</div>',
+            unsafe_allow_html=True,
+        )
+        st.subheader("Which genes concentrate cross-domain evidence?")
+        st.caption(
+            "Bubble size encodes rare-disease breadth; a dark outline marks at least "
+            "one genomic-and-protein confirmed match. Therapy colors represent the "
+            "highest available evidence tier and are not clinical recommendations."
+        )
+        st.plotly_chart(
+            global_gene_landscape_figure(filtered_genes), width="stretch"
+        )
+        ranked = sorted(
+            filtered_genes,
+            key=lambda row: (
+                -int(row["confirmed_shared_count"]),
+                -int(row["max_variant_patient_count"]),
+                -int(row["shared_variant_count"]),
+                str(row["gene"]),
+            ),
+        )
+        left, right = st.columns([2, 1])
+        with left:
+            st.dataframe(
+                [
+                    {
+                        "gene": row["gene"],
+                        "family": row["protein_family"],
+                        "shared_variants": row["shared_variant_count"],
+                        "confirmed": row["confirmed_shared_count"],
+                        "max_cancer_patients": row["max_variant_patient_count"],
+                        "rare_diseases": row["rare_disease_count"],
+                        "actionability": row["actionability_tier"],
+                    }
+                    for row in ranked
+                ],
+                width="stretch",
+                hide_index=True,
+            )
+        with right:
+            _gene_drilldown(ranked)
+
+    with family_tab:
+        st.markdown(
+            '<div class="section-kicker">FAMILY VIEW</div>',
+            unsafe_allow_html=True,
+        )
+        st.subheader("Where does rare-disease/oncology convergence accumulate?")
+        st.plotly_chart(
+            global_family_evidence_figure(filtered_families), width="stretch"
+        )
+        st.dataframe(
+            [
+                {
+                    "family_group": row["family_group"],
+                    "protein_family": row["protein_family"],
+                    "genes": row["gene_count"],
+                    "genes_with_shared": row["genes_with_shared_variants"],
+                    "shared_variants": row["shared_variant_count"],
+                    "confirmed": row["confirmed_shared_count"],
+                    "variant_therapy_genes": row["genes_with_variant_therapy"],
+                    "regulatory_genes": row["genes_with_active_regulatory"],
+                    "trial_genes": row["genes_with_clinical_trials"],
+                }
+                for row in filtered_families
+            ],
+            width="stretch",
+            hide_index=True,
+        )
+
+    with therapy_tab:
+        st.markdown(
+            '<div class="section-kicker">EVIDENCE LAYERS</div>',
+            unsafe_allow_html=True,
+        )
+        st.subheader("Actionability evidence without collapsing its meaning")
+        st.info(overview.caveat)
+        st.plotly_chart(
+            global_actionability_figure(filtered_genes), width="stretch"
+        )
+        st.caption(
+            "Regulatory label evidence, clinical trials and target mechanisms are "
+            "displayed in separate columns. A record count is not an efficacy score."
+        )
+
+    with convergence_tab:
+        st.markdown(
+            '<div class="section-kicker">CONVERGENCE MAPS</div>',
+            unsafe_allow_html=True,
+        )
+        st.subheader("Which disease contexts converge on the same protein families?")
+        disease_counts = tuple(
+            row
+            for row in overview.disease_family_counts
+            if _family_selected(row[1], filtered_families)
+        )
+        project_counts = tuple(
+            row
+            for row in overview.project_family_counts
+            if _family_selected(row[1], filtered_families)
+        )
+        disease_tab, project_tab = st.tabs(["Rare diseases", "Cancer projects"])
+        with disease_tab:
+            st.plotly_chart(
+                global_convergence_figure(
+                    convergence_matrix(disease_counts, top_rows=20),
+                    title="Top rare diseases across protein families",
+                    row_title="Rare disease",
+                ),
+                width="stretch",
+            )
+        with project_tab:
+            st.plotly_chart(
+                global_convergence_figure(
+                    convergence_matrix(project_counts, top_rows=20),
+                    title="Top cancer projects across protein families",
+                    row_title="Cancer project",
+                ),
+                width="stretch",
+            )
+
+    with data_tab:
+        st.markdown(
+            '<div class="section-kicker">AUDITABLE SCOPE</div>',
+            unsafe_allow_html=True,
+        )
+        st.subheader("Download the analytical projection")
+        st.caption(
+            "The export contains derived summaries and execution identifiers. The "
+            "underlying immutable JSON remains available in each gene's Provenance tab."
+        )
+        downloads = st.columns(3)
+        downloads[0].download_button(
+            "Download global JSON",
+            data=payload_to_json(overview.to_dict()),
+            file_name="rare_oncology_global_overview.json",
+            mime="application/json",
+        )
+        downloads[1].download_button(
+            "Download gene table",
+            data=records_to_csv(filtered_genes),
+            file_name="rare_oncology_global_genes.csv",
+            mime="text/csv",
+        )
+        downloads[2].download_button(
+            "Download family table",
+            data=records_to_csv(filtered_families),
+            file_name="rare_oncology_global_families.csv",
+            mime="text/csv",
+        )
+        st.markdown("#### Interpretation boundaries")
+        st.markdown(
+            "- The newest stored molecular execution is selected independently for each gene.\n"
+            "- Therapy results are included only when their stored molecular signature "
+            "matches that analysis exactly.\n"
+            "- Protein-change matches remain candidates unless genomic and protein identity "
+            "are both confirmed.\n"
+            "- Family membership is a curated navigation layer, not inferred from the results."
+        )
+
+
+def _gene_drilldown(rows: Sequence[Mapping[str, Any]]) -> None:
+    """Render an explicit global-to-gene navigation control."""
+
+    genes = [str(row["gene"]) for row in rows]
+    selected = st.selectbox(
+        "Inspect one gene",
+        genes,
+        key="global_drilldown_gene",
+        help="Open the newest stored molecular snapshot in Gene explorer.",
+    )
+    st.button(
+        "Open in Gene explorer",
+        type="primary",
+        width="stretch",
+        on_click=_request_gene_workspace,
+        args=(selected,),
+    )
+
+
+def _request_gene_workspace(gene: str) -> None:
+    """Switch workspaces safely from a Streamlit widget callback."""
+
+    st.session_state["global_gene_target"] = gene
+    st.session_state["workspace"] = "Gene explorer"
+
+
+def _family_selected(
+    protein_family: str, family_rows: Sequence[Mapping[str, Any]]
+) -> bool:
+    """Return whether a protein family remains in the current dashboard scope."""
+
+    return protein_family in {
+        str(row.get("protein_family") or "") for row in family_rows
+    }
+
+
 def _header(gene_count: int, database_count: int, master_path: Path) -> None:
     """Role: Compute header for the app workflow."""
     st.markdown(
@@ -916,7 +1262,16 @@ def _style() -> None:
                 box-shadow: 0 16px 40px rgba(23, 32, 51, .16); margin-bottom: .7rem; }
         .hero h1 { margin: .05rem 0 .25rem; font-size: 2.35rem; letter-spacing: -.03em; }
         .hero p { margin: 0; color: #ffedd5; }
+        .global-hero { background: radial-gradient(circle at 86% 8%, rgba(251,146,60,.40),
+                       transparent 28%), linear-gradient(118deg, #0f172a 0%, #334155 52%, #9a3412 100%); }
         .eyebrow { font-size: .75rem; font-weight: 800; letter-spacing: .18em; color: #fdba74; }
+        .scope-strip { display: flex; gap: .65rem; flex-wrap: wrap; margin: .35rem 0 1.2rem; }
+        .scope-strip span { background: rgba(255,255,255,.86); border: 1px solid #e2e8f0;
+                            border-radius: 999px; padding: .42rem .75rem; color: #475569;
+                            font-size: .83rem; box-shadow: 0 4px 12px rgba(15,23,42,.04); }
+        .scope-strip strong { color: #9a3412; }
+        .section-kicker { color: #c2410c; font-size: .72rem; font-weight: 800;
+                          letter-spacing: .16em; margin-top: .25rem; }
         [data-testid="stMetric"] { background: rgba(255,255,255,.82); border: 1px solid #fed7aa;
                                     padding: .8rem; border-radius: 14px; }
         [data-testid="stSidebar"] { border-right: 1px solid #e2e8f0; }

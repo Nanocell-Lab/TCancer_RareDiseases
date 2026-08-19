@@ -66,6 +66,9 @@ dist/
 *.db-shm
 *.db-wal
 
+# Small, curated clone bootstrap. All other databases remain local/generated.
+!2.1/bootstrap/rare_oncology_demo.sqlite3
+
 # Generated tabular reports and model artifacts
 *_report.json
 *_shared.csv

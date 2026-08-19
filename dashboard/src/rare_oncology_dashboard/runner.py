@@ -178,6 +178,8 @@ class AnalysisRunner:
             command.extend(
                 ["--max-therapy-records", str(options.max_therapy_records)]
             )
+            for source, path in self._bootstrap_regulatory_files():
+                command.extend(["--regulatory-file", f"{source}={path}"])
         if options.include_string_network:
             command.extend(
                 [
@@ -193,6 +195,16 @@ class AnalysisRunner:
         if options.force_refresh:
             command.append("--refresh")
         return tuple(command)
+
+    def _bootstrap_regulatory_files(self) -> tuple[tuple[str, Path], ...]:
+        """Return tracked normalized tables available in a clean Git clone."""
+
+        root = self.v21_root / "bootstrap" / "regulatory"
+        candidates = (
+            ("fda", root / "fda_biomarkers.csv"),
+            ("ema", root / "ema_labels.csv"),
+        )
+        return tuple((source, path) for source, path in candidates if path.is_file())
 
     def build_string_command(
         self, gene: str, options: StringRunOptions
@@ -303,7 +315,9 @@ class AnalysisRunner:
                 check=False,
             )
         except FileNotFoundError as exc:
-            raise RunnerError(f"Python de rare-oncology 2.1 no encontrado: {exc}") from exc
+            raise RunnerError(
+                f"The rare-oncology 2.1 Python executable was not found: {exc}"
+            ) from exc
         except subprocess.TimeoutExpired as exc:
             raise RunnerError(
                 f"STRING timed out after {options.timeout_seconds} seconds."
@@ -413,7 +427,7 @@ class AnalysisRunner:
                 )
             except FileNotFoundError as exc:
                 raise RunnerError(
-                    f"Python de rare-oncology 2.1 no encontrado: {exc}"
+                    f"The rare-oncology 2.1 Python executable was not found: {exc}"
                 ) from exc
             except subprocess.TimeoutExpired as exc:
                 raise RunnerError(

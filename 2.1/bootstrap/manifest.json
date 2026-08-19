@@ -1,0 +1,102 @@
+{
+  "compaction": {
+    "analysis": "All shared mutations and mutation_plot_data are retained. Detailed ClinVar/GDC evidence rows are omitted; AlphaMissense is deduplicated to displayed protein changes, while gnomAD and PanelApp rows remain.",
+    "string": "The newest stored human network is retained.",
+    "therapy": "The newest molecular-signature-compatible result is retained."
+  },
+  "database": {
+    "path": "rare_oncology_demo.sqlite3",
+    "sha256": "77195c6adf1b4bf7482f5c9649dee96acbd63008b0cc761c7046d73763ac1c30",
+    "size_bytes": 4169728
+  },
+  "format_version": 1,
+  "genes": [
+    "EGFR",
+    "TGFBR1",
+    "ACVR1",
+    "PDGFRB"
+  ],
+  "purpose": "Compact read-only examples for a functional Git clone",
+  "regulatory_tables": [
+    {
+      "path": "regulatory/fda_biomarkers.csv",
+      "sha256": "e39daca1c8071027b02584e019b99e06d93b0427631b25da09e7c34979734c44",
+      "size_bytes": 44105
+    },
+    {
+      "path": "regulatory/ema_labels.csv",
+      "sha256": "578e6889ed4221ef5dfec7a7682f6ec91f590a03556b7fea6720997653ed3d6c",
+      "size_bytes": 278998
+    }
+  ],
+  "source_snapshots": [
+    {
+      "analysis": {
+        "created_at": "2026-08-16T18:51:46.818221+00:00",
+        "database": "dashboard_master.sqlite3",
+        "execution_id": 3
+      },
+      "gene": "EGFR",
+      "string": null,
+      "therapy": {
+        "created_at": "2026-08-16T18:52:01.351297+00:00",
+        "database": "dashboard_master.sqlite3",
+        "execution_id": 4
+      }
+    },
+    {
+      "analysis": {
+        "created_at": "2026-08-16T20:01:41.282087+00:00",
+        "database": "tgfb_string/rare_oncology.sqlite3",
+        "execution_id": 21
+      },
+      "gene": "TGFBR1",
+      "string": {
+        "created_at": "2026-08-16T20:01:43.323983+00:00",
+        "database": "tgfb_string/rare_oncology.sqlite3",
+        "execution_id": null
+      },
+      "therapy": {
+        "created_at": "2026-08-16T20:02:07.487982+00:00",
+        "database": "tgfb_string/rare_oncology.sqlite3",
+        "execution_id": 22
+      }
+    },
+    {
+      "analysis": {
+        "created_at": "2026-08-17T01:04:50.601468+00:00",
+        "database": "dashboard_master.sqlite3",
+        "execution_id": 13
+      },
+      "gene": "ACVR1",
+      "string": {
+        "created_at": "2026-08-17T01:04:52.460318+00:00",
+        "database": "dashboard_master.sqlite3",
+        "execution_id": null
+      },
+      "therapy": {
+        "created_at": "2026-08-17T01:04:58.959598+00:00",
+        "database": "dashboard_master.sqlite3",
+        "execution_id": 14
+      }
+    },
+    {
+      "analysis": {
+        "created_at": "2026-08-12T21:53:52.975241+00:00",
+        "database": "rtk_maximum/rare_oncology.sqlite3",
+        "execution_id": 161
+      },
+      "gene": "PDGFRB",
+      "string": {
+        "created_at": "2026-08-17T00:55:58.527151+00:00",
+        "database": "dashboard_master.sqlite3",
+        "execution_id": null
+      },
+      "therapy": {
+        "created_at": "2026-08-12T02:17:29.635428+00:00",
+        "database": "rtk_maximum/rare_oncology.sqlite3",
+        "execution_id": 92
+      }
+    }
+  ]
+}

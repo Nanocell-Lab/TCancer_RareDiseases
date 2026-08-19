@@ -105,6 +105,14 @@ class SQLiteCatalogTests(unittest.TestCase):
             assert latest is not None
             self.assertEqual(latest.result["v"], 2)
             self.assertEqual(latest.database_path, second.resolve())
+            self.assertEqual(latest.schema_version, 1)
+
+            all_analyses = catalog.all_snapshots(ANALYSIS_KIND)
+            self.assertEqual([snapshot.result["v"] for snapshot in all_analyses], [2, 1])
+            self.assertEqual(
+                [snapshot.database_path for snapshot in all_analyses],
+                [second.resolve(), first.resolve()],
+            )
 
     def test_ignores_unrelated_sqlite(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -116,6 +124,28 @@ class SQLiteCatalogTests(unittest.TestCase):
             catalog = SQLiteCatalog((unrelated,))
             self.assertEqual(catalog.available_databases(), ())
             self.assertIn("execution_cache", catalog.warnings()[0])
+
+    def test_discovers_tracked_bootstrap_from_an_additional_root(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            results = root / "results"
+            bootstrap = root / "bootstrap"
+            results.mkdir()
+            bootstrap.mkdir()
+            seed = bootstrap / "rare_oncology_demo.sqlite3"
+            make_database(
+                seed,
+                [(ANALYSIS_KIND, "PDGFRB", "2026-01-01T00:00:00+00:00", {"gene": "PDGFRB"})],
+            )
+
+            paths = discover_databases(
+                results,
+                results / "master.sqlite3",
+                additional_roots=(bootstrap,),
+            )
+
+            self.assertEqual(paths, (seed.resolve(),))
+            self.assertEqual(SQLiteCatalog(paths).genes()[0].gene, "PDGFRB")
 
     def test_reads_latest_string_network_even_from_string_only_database(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

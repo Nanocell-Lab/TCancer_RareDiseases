@@ -49,6 +49,26 @@ class RunnerTests(unittest.TestCase):
             with self.assertRaises(RunnerError):
                 runner.build_command("EGFR", RunOptions(include_oncokb=True))
 
+    def test_clone_tables_are_added_to_therapy_runs(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            executable = root / "2.1" / ".venv" / "bin" / "rare-oncology"
+            executable.parent.mkdir(parents=True)
+            executable.touch()
+            regulatory = root / "2.1" / "bootstrap" / "regulatory"
+            regulatory.mkdir(parents=True)
+            fda = regulatory / "fda_biomarkers.csv"
+            ema = regulatory / "ema_labels.csv"
+            fda.write_text("gene\nEGFR\n", encoding="utf-8")
+            ema.write_text("gene\nEGFR\n", encoding="utf-8")
+            runner = AnalysisRunner(root, root / "master.sqlite3", environment={})
+
+            command = runner.build_command("EGFR", RunOptions())
+
+            self.assertEqual(command.count("--regulatory-file"), 2)
+            self.assertIn(f"fda={fda.resolve()}", command)
+            self.assertIn(f"ema={ema.resolve()}", command)
+
     def test_rejects_shell_metacharacters_in_gene(self) -> None:
         with self.assertRaises(ValueError):
             normalize_gene("EGFR; rm -rf /")

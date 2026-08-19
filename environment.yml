@@ -1,0 +1,40 @@
+# Unified development and execution environment for rare-oncology 2.1 and the
+# Streamlit dashboard. Create it from the repository root with:
+#   conda env create --file environment.yml
+#
+# rare-oncology 2.0 is intentionally not installed because 2.0 and 2.1 expose
+# the same Python distribution and import package. Version 2.1 is the active
+# content producer; the dashboard consumes its SQLite outputs and CLI.
+name: rare-oncology-2.1
+
+channels:
+  - conda-forge
+
+dependencies:
+  # Python 3.11 is supported by every repository package and is the version
+  # already validated by the 2.0 and 2.1 test environments.
+  - python=3.11
+  - pip>=24
+  - setuptools>=68
+  - wheel
+
+  # Compiled scientific packages are resolved by Conda to avoid mixing binary
+  # ABIs across NumPy, SciPy, Matplotlib and pandas.
+  - "numpy>=1.26,<3"
+  - "pandas>=2,<4"
+  - "scipy>=1.11,<2"
+  - "matplotlib>=3.8,<4"
+  - "seaborn>=0.13,<1"
+  - pillow
+
+  # Interactive dashboard runtime.
+  - "plotly>=5.24,<7"
+  - "streamlit>=1.61,<2"
+  - watchdog
+
+  # Geneview is installed from PyPI because the project pins version 0.8.2.
+  # The two repository packages remain editable for local development.
+  - pip:
+      - geneview==0.8.2
+      - -e ./2.1
+      - -e ./dashboard
