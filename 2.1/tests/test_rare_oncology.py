@@ -6,6 +6,12 @@ from unittest import mock
 
 from rare_oncology.analysis import _aggregate_matches, find_shared_mutations
 from rare_oncology.clients import GdcClient, NcbiClinVarClient
+from rare_oncology.disease_categories import (
+    HEREDITARY_CANCER,
+    OTHER_INHERITED_DISEASE,
+    inherited_disease_category,
+    partition_inherited_diseases,
+)
 from rare_oncology.http import ApiError, JsonHttpClient
 from rare_oncology.models import CancerObservation, RareVariant
 from rare_oncology.normalization import normalize_protein_change
@@ -130,6 +136,32 @@ class NormalizationTests(unittest.TestCase):
     def test_rejects_unknown_change(self):
         self.assertIsNone(normalize_protein_change("p.?"))
 
+    def test_separates_hereditary_cancer_from_other_inherited_conditions(self):
+        self.assertEqual(
+            inherited_disease_category("Hereditary cancer-predisposing syndrome"),
+            HEREDITARY_CANCER,
+        )
+        self.assertEqual(
+            inherited_disease_category("Hereditary diffuse gastric cancer"),
+            HEREDITARY_CANCER,
+        )
+        self.assertEqual(
+            inherited_disease_category("Hereditary cryohydrocytosis with reduced stomatin"),
+            OTHER_INHERITED_DISEASE,
+        )
+        self.assertEqual(
+            partition_inherited_diseases(
+                [
+                    "Hereditary cancer-predisposing syndrome",
+                    "Progressive myositis ossificans",
+                ]
+            ),
+            (
+                ("Hereditary cancer-predisposing syndrome",),
+                ("Progressive myositis ossificans",),
+            ),
+        )
+
 
 class EgfrPipelineTests(unittest.TestCase):
     def test_egfr_candidate_overlap(self):
@@ -175,6 +207,15 @@ class EgfrPipelineTests(unittest.TestCase):
         self.assertEqual(shared.orphanet_codes, ("999999",))
         self.assertEqual(shared.genomic_match_count, 1)
         self.assertEqual(shared.match_level, "confirmed_genomic_and_protein")
+        self.assertEqual(shared.hereditary_cancer_diseases, ())
+        self.assertEqual(
+            shared.other_inherited_diseases,
+            ("EGFR-associated rare disorder",),
+        )
+        self.assertEqual(
+            plotted["L858R"].other_inherited_diseases,
+            ("EGFR-associated rare disorder",),
+        )
 
     def test_minimum_patient_threshold(self):
         clinvar = NcbiClinVarClient(

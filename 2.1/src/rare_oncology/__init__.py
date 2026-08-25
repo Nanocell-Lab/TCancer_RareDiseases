@@ -15,6 +15,17 @@ from .completion import (
     discover_completion_databases,
     write_completion_report,
 )
+from .chemical_metadata import (
+    ChemicalMetadata,
+    ChemicalMetadataResolver,
+    ChEMBLChemicalMetadataClient,
+)
+from .disease_categories import (
+    HEREDITARY_CANCER,
+    OTHER_INHERITED_DISEASE,
+    inherited_disease_category,
+    partition_inherited_diseases,
+)
 from .evidence import (
     EvidenceContext,
     GnomadEvidenceProvider,
@@ -114,6 +125,9 @@ __all__ = [
     "CacheMissError",
     "CachedRun",
     "CancerObservation",
+    "ChemicalMetadata",
+    "ChemicalMetadataResolver",
+    "ChEMBLChemicalMetadataClient",
     "CompletionItem",
     "CompletionReport",
     "ClinVarConditionAssertion",
@@ -124,6 +138,7 @@ __all__ = [
     "GdcClient",
     "DEFAULT_COMPLETION_SOURCES",
     "GnomadEvidenceProvider",
+    "HEREDITARY_CANCER",
     "GlobalAnalysisIndex",
     "GlobalFamilyReport",
     "GlobalFamilyGroupSummary",
@@ -132,6 +147,7 @@ __all__ = [
     "LocalTableEvidenceProvider",
     "MutationPlotRecord",
     "NcbiClinVarClient",
+    "OTHER_INHERITED_DISEASE",
     "ProteinAnnotation",
     "ProteinFamilyAssignment",
     "ProteinFeature",
@@ -179,7 +195,9 @@ __all__ = [
     "create_string_network_plot",
     "generate_string_network_plots",
     "get_string_network",
+    "inherited_disease_category",
     "normalize_protein_change",
+    "partition_inherited_diseases",
     "load_family_catalog",
     "read_protein_sequence",
     "write_string_edges_csv",

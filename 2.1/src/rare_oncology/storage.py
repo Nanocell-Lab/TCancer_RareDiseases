@@ -25,6 +25,7 @@ from .models import (
     TherapyAssociation,
     TherapyResult,
 )
+from .disease_categories import partition_inherited_diseases
 from .therapy import TherapyProvider, find_therapy_associations
 
 
@@ -441,11 +442,13 @@ def analysis_result_from_dict(payload: Mapping[str, Any]) -> AnalysisResult:
     data = dict(payload)
     data.pop("association_count", None)
     data["shared_mutations"] = tuple(
-        SharedMutation(**_tuple_fields(item, _SHARED_TUPLES))
+        SharedMutation(**_tuple_fields(_with_disease_categories(item), _SHARED_TUPLES))
         for item in data.get("shared_mutations", [])
     )
     data["mutation_plot_data"] = tuple(
-        MutationPlotRecord(**_tuple_fields(item, _PLOT_TUPLES))
+        MutationPlotRecord(
+            **_tuple_fields(_with_disease_categories(item), _PLOT_TUPLES)
+        )
         for item in data.get("mutation_plot_data", [])
     )
     data["evidence_records"] = tuple(
@@ -498,6 +501,8 @@ _SHARED_TUPLES = {
     "tcga_projects",
     "genomic_confirmations",
     "ssm_ids",
+    "hereditary_cancer_diseases",
+    "other_inherited_diseases",
 }
 _PLOT_TUPLES = {
     "diseases",
@@ -505,10 +510,13 @@ _PLOT_TUPLES = {
     "germline_classifications",
     "project_patient_counts",
     "disease_variant_counts",
+    "hereditary_cancer_diseases",
+    "other_inherited_diseases",
 }
 _EVIDENCE_TUPLES = {"details"}
 _THERAPY_TUPLES = {
     "therapy_components",
+    "chembl_ids",
     "disease_ids",
     "disease_names",
     "details",
@@ -519,6 +527,33 @@ _ANALYSIS_ITERABLE_ARGUMENTS = {
     "allowed_germline_classifications",
     "evidence_providers",
 }
+
+
+def _with_disease_categories(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Backfill category fields when rehydrating pre-category snapshots."""
+
+    data = dict(payload)
+    hereditary_cancer = {
+        str(value)
+        for value in data.get("hereditary_cancer_diseases") or ()
+        if str(value)
+    }
+    other_inherited = {
+        str(value)
+        for value in data.get("other_inherited_diseases") or ()
+        if str(value)
+    }
+    diseases = {str(value) for value in data.get("diseases") or () if str(value)}
+    fallback_cancer, fallback_other = partition_inherited_diseases(
+        diseases - hereditary_cancer - other_inherited
+    )
+    data["hereditary_cancer_diseases"] = tuple(
+        sorted(hereditary_cancer | set(fallback_cancer))
+    )
+    data["other_inherited_diseases"] = tuple(
+        sorted(other_inherited | set(fallback_other))
+    )
+    return data
 
 
 def _tuple_fields(

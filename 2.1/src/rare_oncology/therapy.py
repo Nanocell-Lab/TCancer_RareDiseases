@@ -6,11 +6,15 @@ import csv
 import json
 import math
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Protocol, Sequence
 
+from .chemical_metadata import (
+    ChemicalMetadataResolver,
+    ChEMBLChemicalMetadataClient,
+)
 from .http import ApiError, JsonHttpClient
 from .models import (
     AnalysisResult,
@@ -146,7 +150,10 @@ class CivicTherapyProvider:
             evidenceRating therapyInteractionType description link
             molecularProfile { id name isMultiVariant }
             disease { id name doid link }
-            therapies { id name ncitId link }
+            therapies {
+              id name ncitId link
+              myChemInfo { chemblId chemblMoleculeType }
+            }
             source { citationId sourceType link }
           }
         }
@@ -158,6 +165,7 @@ class CivicTherapyProvider:
         *,
         http: PostJsonClient | None = None,
         max_variants: int = 25,
+        chemical_resolver: ChemicalMetadataResolver | None = None,
     ) -> None:
         """Role: Compute init for the therapy workflow."""
         if max_variants < 1:
@@ -168,13 +176,24 @@ class CivicTherapyProvider:
             min_interval=0.34,
         )
         self.max_variants = max_variants
+        self.chemical_resolver = (
+            chemical_resolver or ChEMBLChemicalMetadataClient()
+        )
+        self.last_status = "ok"
+        self.last_message: str | None = None
 
     def cache_identity(self) -> dict[str, Any]:
         """Role: Return the stable provider configuration used for cache keys."""
-        return {"url": self.url, "max_variants": self.max_variants}
+        return {
+            "url": self.url,
+            "max_variants": self.max_variants,
+            "chemical_metadata": dict(self.chemical_resolver.cache_identity()),
+        }
 
     def collect(self, context: TherapyContext) -> list[TherapyAssociation]:
         """Role: Collect source-specific records for the current analysis context."""
+        self.last_status = "ok"
+        self.last_message = None
         requested = set(context.protein_changes)
         if not requested:
             return []
@@ -225,7 +244,17 @@ class CivicTherapyProvider:
                 )
                 if cursor is None:
                     break
-        return _deduplicate(records)
+        return _deduplicate(self._with_chemical_metadata(records))
+
+    def _with_chemical_metadata(
+        self, records: list[TherapyAssociation]
+    ) -> list[TherapyAssociation]:
+        try:
+            return _enrich_chemical_metadata(records, self.chemical_resolver)
+        except (ApiError, OSError, ValueError, KeyError, TypeError) as exc:
+            self.last_status = "partial"
+            self.last_message = f"ChEMBL SMILES enrichment unavailable: {exc}"
+            return records
 
     def _graphql(self, query: str, variables: dict[str, Any]) -> dict[str, Any]:
         """Role: Compute graphql for the therapy workflow."""
@@ -253,6 +282,30 @@ class CivicTherapyProvider:
         if not therapies:
             return None
         names = tuple(str(item["name"]) for item in therapies)
+        chemical_info = [
+            item.get("myChemInfo")
+            for item in therapies
+            if isinstance(item.get("myChemInfo"), dict)
+        ]
+        chembl_ids = _normalized_chembl_ids(
+            str(info["chemblId"])
+            for info in chemical_info
+            if _optional_text(info.get("chemblId"))
+        )
+        molecule_types = tuple(
+            sorted(
+                {
+                    normalized
+                    for info in chemical_info
+                    if (
+                        normalized := _snake_case(
+                            info.get("chemblMoleculeType")
+                        )
+                    )
+                    is not None
+                }
+            )
+        )
         therapy_ids = tuple(
             str(item.get("ncitId") or f"CIViC:{item.get('id')}") for item in therapies
         )
@@ -293,6 +346,12 @@ class CivicTherapyProvider:
             source_version=self.source_version,
             license=self.license_name,
             details=(("therapy_interaction_type", interaction),) if interaction else (),
+            therapy_type=(
+                molecule_types[0]
+                if len(names) == 1 and len(molecule_types) == 1
+                else (_snake_case(interaction) if len(names) > 1 else None)
+            ),
+            chembl_ids=chembl_ids,
         )
 
 
@@ -478,6 +537,9 @@ class OncoKBTherapyProvider:
                     source_version=source_version,
                     license=self.license_name,
                     details=tuple(sorted(details.items())),
+                    therapy_type=(
+                        "combination_drug" if len(components) > 1 else "drug"
+                    ),
                 )
             )
         return records
@@ -675,6 +737,7 @@ class ClinicalTrialsTherapyProvider:
                     retrieved_at=retrieved_at,
                     source_version=self.source_version,
                     license=self.license_name,
+                    therapy_type=_snake_case(intervention.get("type")),
                     details=tuple(
                         item
                         for item in (
@@ -731,6 +794,7 @@ class OpenTargetsTherapyProvider:
         *,
         http: PostJsonClient | None = None,
         max_drugs: int = 100,
+        chemical_resolver: ChemicalMetadataResolver | None = None,
     ) -> None:
         """Role: Compute init for the therapy workflow."""
         if max_drugs < 1:
@@ -740,13 +804,24 @@ class OpenTargetsTherapyProvider:
             retries=2,
         )
         self.max_drugs = max_drugs
+        self.chemical_resolver = (
+            chemical_resolver or ChEMBLChemicalMetadataClient()
+        )
+        self.last_status = "ok"
+        self.last_message: str | None = None
 
     def cache_identity(self) -> dict[str, Any]:
         """Role: Return the stable provider configuration used for cache keys."""
-        return {"url": self.url, "max_drugs": self.max_drugs}
+        return {
+            "url": self.url,
+            "max_drugs": self.max_drugs,
+            "chemical_metadata": dict(self.chemical_resolver.cache_identity()),
+        }
 
     def collect(self, context: TherapyContext) -> list[TherapyAssociation]:
         """Role: Collect source-specific records for the current analysis context."""
+        self.last_status = "ok"
+        self.last_message = None
         search = self._graphql(self._SEARCH_QUERY, {"query": context.gene})
         hits = search.get("data", {}).get("search", {}).get("hits") or []
         exact = next(
@@ -803,8 +878,15 @@ class OpenTargetsTherapyProvider:
                     source_version=self.source_version,
                     license=self.license_name,
                     details=(("maximum_clinical_stage", stage),) if stage else (),
+                    therapy_type=_snake_case(drug.get("drugType")),
+                    chembl_ids=_normalized_chembl_ids((drug_id,)),
                 )
             )
+        try:
+            records = _enrich_chemical_metadata(records, self.chemical_resolver)
+        except (ApiError, OSError, ValueError, KeyError, TypeError) as exc:
+            self.last_status = "partial"
+            self.last_message = f"ChEMBL SMILES enrichment unavailable: {exc}"
         return _deduplicate(records)
 
     def _graphql(self, query: str, variables: dict[str, Any]) -> dict[str, Any]:
@@ -939,6 +1021,27 @@ class RegulatoryTableTherapyProvider:
                         _first(row, "source_version", "version") or self.source_version
                     ),
                     license=_first(row, "license") or self.license_name,
+                    therapy_type=(
+                        _snake_case(
+                            _first(
+                                row,
+                                "therapy_type",
+                                "drug_type",
+                                "molecule_type",
+                                "modality",
+                                "intervention_type",
+                            )
+                        )
+                        or (
+                            "small_molecule"
+                            if _first(row, "canonical_smiles", "smiles")
+                            else None
+                        )
+                    ),
+                    chembl_ids=_normalized_chembl_ids(
+                        _split_values(_first(row, "chembl_id", "chembl_ids"))
+                    ),
+                    canonical_smiles=_first(row, "canonical_smiles", "smiles"),
                 )
             )
         return _deduplicate(records)
@@ -1041,6 +1144,66 @@ def collect_therapy_associations(
                 )
             )
     return tuple(_deduplicate(records)), tuple(statuses)
+
+
+def _enrich_chemical_metadata(
+    records: Sequence[TherapyAssociation],
+    resolver: ChemicalMetadataResolver,
+) -> list[TherapyAssociation]:
+    """Attach a canonical SMILES only to an unambiguous single small molecule."""
+
+    requested = tuple(
+        sorted(
+            {
+                chembl_id
+                for record in records
+                for chembl_id in record.chembl_ids
+            }
+        )
+    )
+    if not requested:
+        return list(records)
+    metadata = resolver.resolve(requested)
+    enriched: list[TherapyAssociation] = []
+    for record in records:
+        if (
+            record.canonical_smiles
+            or len(record.therapy_components) != 1
+            or len(record.chembl_ids) != 1
+        ):
+            enriched.append(record)
+            continue
+        molecule = metadata.get(record.chembl_ids[0].upper())
+        if molecule is None:
+            enriched.append(record)
+            continue
+        therapy_type = record.therapy_type or _snake_case(molecule.molecule_type)
+        enriched.append(
+            replace(
+                record,
+                therapy_type=therapy_type,
+                canonical_smiles=(
+                    molecule.canonical_smiles
+                    if therapy_type == "small_molecule"
+                    else None
+                ),
+            )
+        )
+    return enriched
+
+
+def _normalized_chembl_ids(values: Iterable[str]) -> tuple[str, ...]:
+    """Keep only normalized molecule identifiers suitable for ChEMBL lookup."""
+
+    return tuple(
+        sorted(
+            {
+                value.strip().upper()
+                for value in values
+                if re.fullmatch(r"CHEMBL\d+", value.strip(), flags=re.IGNORECASE)
+            }
+        )
+    )
 
 
 def _deduplicate(records: Iterable[TherapyAssociation]) -> list[TherapyAssociation]:

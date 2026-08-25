@@ -72,6 +72,8 @@ class SharedMutation:
     genomic_confirmations: tuple[str, ...]
     ssm_ids: tuple[str, ...]
     match_level: str
+    hereditary_cancer_diseases: tuple[str, ...] = ()
+    other_inherited_diseases: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -89,6 +91,8 @@ class MutationPlotRecord:
     project_patient_counts: tuple[tuple[str, int], ...]
     match_level: str | None
     disease_variant_counts: tuple[tuple[str, int], ...] = ()
+    hereditary_cancer_diseases: tuple[str, ...] = ()
+    other_inherited_diseases: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -168,6 +172,9 @@ class TherapyAssociation:
     source_version: str | None = None
     license: str | None = None
     details: tuple[tuple[str, str], ...] = ()
+    therapy_type: str | None = None
+    chembl_ids: tuple[str, ...] = ()
+    canonical_smiles: str | None = None
 
 
 @dataclass(frozen=True)

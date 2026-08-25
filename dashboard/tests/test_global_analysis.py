@@ -83,6 +83,10 @@ class GlobalAnalysisTests(unittest.TestCase):
         new_egfr = analysis_result(
             "EGFR", "L858R", "confirmed_genomic_and_protein"
         )
+        new_egfr["shared_mutations"][0]["diseases"] = [
+            "Hereditary cancer-predisposing syndrome",
+            "EGFR rare disease",
+        ]
         acvr1 = analysis_result("ACVR1", "R206H", "candidate_protein_match")
         analyses = [
             snapshot(3, ANALYSIS_KIND, "EGFR", "2026-03-01T00:00:00+00:00", new_egfr),
@@ -138,12 +142,26 @@ class GlobalAnalysisTests(unittest.TestCase):
         self.assertEqual(egfr.therapy_execution_id, 11)
         self.assertEqual(egfr.variant_therapy_count, 1)
         self.assertEqual(egfr.actionability_tier, "Variant-specific evidence")
+        self.assertEqual(egfr.hereditary_cancer_disease_count, 1)
+        self.assertEqual(egfr.other_inherited_disease_count, 1)
         acvr1_row = next(row for row in overview.gene_summaries if row.gene == "ACVR1")
         self.assertEqual(acvr1_row.protein_family, "TGF-beta type I receptors")
         self.assertEqual(acvr1_row.actionability_tier, "No therapy evidence")
         self.assertIn(
             ("EGFR rare disease", "EGFR/ERBB family", 1),
             overview.disease_family_counts,
+        )
+        self.assertIn(
+            (
+                "Hereditary cancer-predisposing syndrome",
+                "EGFR/ERBB family",
+                1,
+            ),
+            overview.hereditary_cancer_family_counts,
+        )
+        self.assertIn(
+            ("EGFR rare disease", "EGFR/ERBB family", 1),
+            overview.other_inherited_disease_family_counts,
         )
 
     def test_convergence_matrix_is_ranked_and_bounded(self) -> None:

@@ -2,6 +2,11 @@ from __future__ import annotations
 
 import unittest
 
+from rare_oncology_dashboard.disease_categories import (
+    HEREDITARY_CANCER,
+    OTHER_INHERITED_DISEASE,
+)
+
 from rare_oncology_dashboard.transforms import (
     alphamissense_rows,
     lollipop_rows,
@@ -11,6 +16,7 @@ from rare_oncology_dashboard.transforms import (
     string_graph_data,
     string_partner_rows,
     structure_variant_rows,
+    therapy_ligand_rows,
     therapy_rows,
 )
 
@@ -111,6 +117,45 @@ class TransformTests(unittest.TestCase):
         self.assertEqual(matrix["shared"], [True])
         self.assertEqual(matrix["values"], [[3]])
 
+    def test_rare_heatmap_separates_hereditary_cancer_for_legacy_snapshots(self) -> None:
+        payload = {
+            "mutation_plot_data": [
+                {
+                    "protein_change": "R252C",
+                    "in_rare_disease": True,
+                    "in_oncology": True,
+                    "diseases": [
+                        "Hereditary cancer-predisposing syndrome",
+                        "Hereditary cryohydrocytosis with reduced stomatin",
+                    ],
+                    "disease_variant_counts": [
+                        ["Hereditary cancer-predisposing syndrome", 2],
+                        ["Hereditary cryohydrocytosis with reduced stomatin", 1],
+                    ],
+                    "cancer_patient_count": 5,
+                }
+            ]
+        }
+
+        cancer = rare_disease_heatmap(
+            payload,
+            category=HEREDITARY_CANCER,
+        )
+        other = rare_disease_heatmap(
+            payload,
+            category=OTHER_INHERITED_DISEASE,
+        )
+
+        self.assertEqual(
+            cancer["diseases"], ["Hereditary cancer-predisposing syndrome"]
+        )
+        self.assertEqual(cancer["values"], [[2]])
+        self.assertEqual(
+            other["diseases"],
+            ["Hereditary cryohydrocytosis with reduced stomatin"],
+        )
+        self.assertEqual(other["values"], [[1]])
+
     def test_alphamissense_marks_shared(self) -> None:
         rows = alphamissense_rows(RESULT)
         self.assertEqual(rows[0]["position"], 206)
@@ -128,6 +173,43 @@ class TransformTests(unittest.TestCase):
         self.assertEqual({row["layer"] for row in rows}, {
             "Variant-specific evidence", "Regulatory therapy", "Trial and target discovery"
         })
+
+    def test_therapy_molecule_metadata_is_structure_ready(self) -> None:
+        payload = {
+            "variant_therapy_evidence": [
+                {
+                    "therapy_name": "Molecule A",
+                    "therapy_type": "small_molecule",
+                    "chembl_ids": ["CHEMBL42"],
+                    "canonical_smiles": "CCN",
+                    "source": "CIViC",
+                },
+                {
+                    "therapy_name": "Antibody B",
+                    "therapy_type": "antibody",
+                    "canonical_smiles": "legacy-value-must-not-enable-ligand",
+                    "source": "CIViC",
+                },
+            ]
+        }
+
+        rows = therapy_rows(payload)
+        self.assertEqual(rows[0]["therapy_type"], "small_molecule")
+        self.assertEqual(rows[0]["chembl_ids"], "CHEMBL42")
+        self.assertTrue(rows[0]["structure_ligand_ready"])
+        self.assertFalse(rows[1]["structure_ligand_ready"])
+        self.assertEqual(
+            therapy_ligand_rows(payload),
+            [
+                {
+                    "therapy": "Molecule A",
+                    "therapy_type": "small_molecule",
+                    "canonical_smiles": "CCN",
+                    "chembl_ids": "CHEMBL42",
+                    "source": "CIViC",
+                }
+            ],
+        )
 
     def test_string_partners_are_direct_ranked_and_channel_safe(self) -> None:
         rows = string_partner_rows(STRING_RESULT)

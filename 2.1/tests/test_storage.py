@@ -24,6 +24,7 @@ from rare_oncology.storage import (
     ANALYSIS_KIND,
     CacheMissError,
     ExecutionDatabase,
+    analysis_result_from_dict,
     find_shared_mutations_cached,
     find_therapy_associations_cached,
 )
@@ -51,6 +52,7 @@ def analysis_result(change: str = "L858R") -> AnalysisResult:
         genomic_confirmations=("GRCh38:7:55191822:T>G",),
         ssm_ids=("ssm-1",),
         match_level="confirmed",
+        other_inherited_diseases=("Rare EGFR disorder",),
     )
     return AnalysisResult(
         gene="EGFR",
@@ -81,6 +83,7 @@ def analysis_result(change: str = "L858R") -> AnalysisResult:
                 project_patient_counts=(("TCGA-LUAD", 1),),
                 match_level="confirmed",
                 disease_variant_counts=(("Rare EGFR disorder", 1),),
+                other_inherited_diseases=("Rare EGFR disorder",),
             ),
         ),
         evidence_record_count=1,
@@ -114,6 +117,26 @@ class MutableClock:
 
 
 class DatabaseTests(unittest.TestCase):
+    def test_legacy_snapshot_rehydrates_with_separate_disease_categories(self):
+        payload = analysis_result().to_dict()
+        shared = payload["shared_mutations"][0]
+        plotted = payload["mutation_plot_data"][0]
+        shared.pop("hereditary_cancer_diseases")
+        shared.pop("other_inherited_diseases")
+        plotted.pop("hereditary_cancer_diseases")
+        plotted.pop("other_inherited_diseases")
+
+        restored = analysis_result_from_dict(payload)
+
+        self.assertEqual(
+            restored.shared_mutations[0].other_inherited_diseases,
+            ("Rare EGFR disorder",),
+        )
+        self.assertEqual(
+            restored.mutation_plot_data[0].other_inherited_diseases,
+            ("Rare EGFR disorder",),
+        )
+
     def test_round_trip_preserves_nested_dataclasses_and_tracks_hits(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "runs.sqlite3"
@@ -141,6 +164,14 @@ class DatabaseTests(unittest.TestCase):
         self.assertEqual(
             analysis.mutation_plot_data[0].disease_variant_counts,
             (("Rare EGFR disorder", 1),),
+        )
+        self.assertEqual(
+            analysis.shared_mutations[0].other_inherited_diseases,
+            ("Rare EGFR disorder",),
+        )
+        self.assertEqual(
+            analysis.mutation_plot_data[0].other_inherited_diseases,
+            ("Rare EGFR disorder",),
         )
         self.assertEqual(analysis.evidence_records[0].details, (("key", "value"),))
         self.assertEqual(summaries[0].cache_hit_count, 1)
@@ -485,6 +516,9 @@ class CachedFunctionTests(unittest.TestCase):
                         therapy_components=("Cachetinib",),
                         therapy_status="curated_predictive_evidence",
                         retrieved_at="2026-08-11T00:00:00+00:00",
+                        therapy_type="small_molecule",
+                        chembl_ids=("CHEMBL42",),
+                        canonical_smiles="CCN",
                     )
                 ]
 
@@ -511,6 +545,10 @@ class CachedFunctionTests(unittest.TestCase):
             second.result.variant_therapy_evidence[0].therapy_name,
             "Cachetinib",
         )
+        cached = second.result.variant_therapy_evidence[0]
+        self.assertEqual(cached.therapy_type, "small_molecule")
+        self.assertEqual(cached.chembl_ids, ("CHEMBL42",))
+        self.assertEqual(cached.canonical_smiles, "CCN")
 
     def test_oncokb_token_is_not_persisted_in_sqlite(self):
         class Http:

@@ -26,8 +26,12 @@ modified.
   `../2.1/.venv/bin/rare-oncology` CLI. The 2.1 cache is checked first and any
   new execution is written to `../2.1/results/dashboard_master.sqlite3`.
 - Offers interactive mutation overlap, protein lollipop, recurrence, oncology
-  heatmap, top-30 rare-disease heatmap, AlphaMissense, three-layer therapy and
-  human STRING partner-network views.
+  heatmap, separate hereditary-cancer and other inherited-disease heatmaps,
+  AlphaMissense, three-layer therapy (including therapy type and available
+  canonical SMILES) and human STRING partner-network views.
+- Keeps germline hereditary-cancer conditions separate from somatic GDC cancer
+  observations in both gene-level and cross-family convergence results. Legacy
+  snapshots are classified from explicit condition wording at read time.
 - Reads exact STRING snapshots from `string_network_cache`. A dedicated
   **Fetch/Refresh STRING** action runs only the STRING connector, so it does not
   repeat ClinVar, GDC or therapy requests.
@@ -109,6 +113,12 @@ PYTHONPATH=src .venv/bin/python -m rare_oncology.string_cli TGFBR1 \
 Therapy results remain separated into variant-specific evidence, regulatory
 therapy, and trial/target discovery. Nothing in this dashboard is a clinical
 recommendation.
+
+The structure tab lists unambiguous single small-molecule therapies whose
+canonical SMILES is available and lets users download those candidates. The
+currently generated AlphaFold 3 and Boltz-2 files remain protein-only; ligand
+metadata is exposed for a later explicit structure-input workflow rather than
+silently changing model composition.
 
 ## Structural modelling
 

@@ -15,6 +15,7 @@ from .clients import (
     GdcClient,
     NcbiClinVarClient,
 )
+from .disease_categories import partition_inherited_diseases
 from .evidence import (
     ClinVarEvidenceProvider,
     EvidenceContext,
@@ -261,6 +262,8 @@ def _aggregate_matches(
     for change in sorted(rare_by_change.keys() & cancer_by_change.keys()):
         rare = rare_by_change[change]
         cancer = cancer_by_change[change]
+        diseases = _flatten(variant.diseases for variant in rare)
+        hereditary_cancer, other_inherited = partition_inherited_diseases(diseases)
         patient_keys = {
             observation.case_id or observation.patient_id
             for observation in cancer
@@ -306,7 +309,7 @@ def _aggregate_matches(
             SharedMutation(
                 gene=gene,
                 protein_change=change,
-                diseases=_flatten(variant.diseases for variant in rare),
+                diseases=diseases,
                 orphanet_codes=_flatten(variant.orphanet_codes for variant in rare),
                 clinvar_ids=tuple(sorted({variant.clinvar_id for variant in rare})),
                 clinvar_accessions=tuple(
@@ -359,6 +362,8 @@ def _aggregate_matches(
                         else "candidate_protein_match"
                     )
                 ),
+                hereditary_cancer_diseases=hereditary_cancer,
+                other_inherited_diseases=other_inherited,
             )
         )
     return sorted(
@@ -395,6 +400,8 @@ def _build_plot_data(
     for change in sorted(rare_by_change.keys() | cancer_by_change.keys()):
         rare = rare_by_change.get(change, [])
         cancer = cancer_by_change.get(change, [])
+        diseases = _flatten(variant.diseases for variant in rare)
+        hereditary_cancer, other_inherited = partition_inherited_diseases(diseases)
         disease_variants: dict[str, set[str]] = defaultdict(set)
         for index, variant in enumerate(rare):
             variant_key = (
@@ -428,7 +435,7 @@ def _build_plot_data(
                 amino_acid_position=protein_position(change),
                 in_rare_disease=bool(rare),
                 in_oncology=qualifies_as_oncology,
-                diseases=_flatten(variant.diseases for variant in rare),
+                diseases=diseases,
                 orphanet_codes=_flatten(variant.orphanet_codes for variant in rare),
                 germline_classifications=_flatten(
                     (variant.germline_classification,) for variant in rare
@@ -456,6 +463,8 @@ def _build_plot_data(
                         for disease, variant_keys in disease_variants.items()
                     )
                 ),
+                hereditary_cancer_diseases=hereditary_cancer,
+                other_inherited_diseases=other_inherited,
             )
         )
     return records

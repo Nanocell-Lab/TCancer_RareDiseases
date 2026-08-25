@@ -7,6 +7,12 @@ import re
 from collections import defaultdict
 from typing import Any, Iterable, Mapping
 
+from .disease_categories import (
+    HEREDITARY_CANCER,
+    INHERITED_DISEASE_CATEGORIES,
+    snapshot_disease_partition,
+)
+
 
 Payload = Mapping[str, Any]
 _POSITION = re.compile(r"(?:p\.)?[^0-9]*(\d+)")
@@ -125,6 +131,7 @@ def shared_mutation_rows(result: Payload) -> list[dict[str, Any]]:
     """Role: Provide the shared mutation rows operation for the transforms workflow."""
     rows = []
     for record in _records(result, "shared_mutations"):
+        hereditary_cancer, other_inherited = snapshot_disease_partition(record)
         rows.append(
             {
                 "protein_change": record.get("protein_change"),
@@ -133,6 +140,8 @@ def shared_mutation_rows(result: Payload) -> list[dict[str, Any]]:
                 "cancer_events": _integer(record.get("cancer_event_count")) or 0,
                 "genomic_matches": _integer(record.get("genomic_match_count")) or 0,
                 "rare_diseases": "; ".join(_strings(record.get("diseases"))),
+                "hereditary_cancer": "; ".join(hereditary_cancer),
+                "other_inherited_diseases": "; ".join(other_inherited),
                 "orphanet_codes": ", ".join(_strings(record.get("orphanet_codes"))),
                 "oncology_projects": ", ".join(_strings(record.get("tcga_projects"))),
                 "clinvar_accessions": ", ".join(
@@ -179,10 +188,17 @@ def oncology_heatmap(result: Payload, *, top: int = 30) -> dict[str, Any]:
     return {"mutations": mutations, "projects": projects, "values": values, "shared": shared}
 
 
-def rare_disease_heatmap(result: Payload, *, top: int = 30) -> dict[str, Any]:
+def rare_disease_heatmap(
+    result: Payload,
+    *,
+    top: int = 30,
+    category: str | None = None,
+) -> dict[str, Any]:
     """Role: Provide the rare disease heatmap operation for the transforms workflow."""
     if not 1 <= top <= 30:
         raise ValueError("top must be between 1 and 30")
+    if category is not None and category not in INHERITED_DISEASE_CATEGORIES:
+        raise ValueError(f"unknown inherited disease category: {category}")
     records = [
         record
         for record in _records(result, "mutation_plot_data")
@@ -193,12 +209,24 @@ def rare_disease_heatmap(result: Payload, *, top: int = 30) -> dict[str, Any]:
         """Role: Provide the disease counts operation for the transforms workflow."""
         pairs = _pairs(record.get("disease_variant_counts"))
         if pairs:
-            return {
+            counts = {
                 str(disease): int(count)
                 for disease, count in pairs
                 if str(disease) and int(count) > 0
             }
-        return {disease: 1 for disease in _strings(record.get("diseases"))}
+        else:
+            counts = {disease: 1 for disease in _strings(record.get("diseases"))}
+        if category is None:
+            return counts
+        hereditary_cancer, other_inherited = snapshot_disease_partition(record)
+        allowed = set(
+            hereditary_cancer if category == HEREDITARY_CANCER else other_inherited
+        )
+        return {
+            disease: count
+            for disease, count in counts.items()
+            if disease in allowed
+        }
 
     def rank(record: Payload) -> tuple[int, int, int, str]:
         """Role: Provide the rank operation for the transforms workflow."""
@@ -210,11 +238,17 @@ def rare_disease_heatmap(result: Payload, *, top: int = 30) -> dict[str, Any]:
             str(record.get("protein_change", "")),
         )
 
-    shared = sorted((record for record in records if record.get("in_oncology")), key=rank)
-    rare_only = sorted((record for record in records if not record.get("in_oncology")), key=rank)
+    categorized = [record for record in records if disease_counts(record)]
+    shared = sorted(
+        (record for record in categorized if record.get("in_oncology")), key=rank
+    )
+    rare_only = sorted(
+        (record for record in categorized if not record.get("in_oncology")), key=rank
+    )
     selected = (shared + rare_only)[:top]
     counts_by_mutation = {
-        str(record.get("protein_change", "")): disease_counts(record) for record in selected
+        str(record.get("protein_change", "")): disease_counts(record)
+        for record in selected
     }
     diseases = sorted(
         {disease for counts in counts_by_mutation.values() for disease in counts},
@@ -225,6 +259,7 @@ def rare_disease_heatmap(result: Payload, *, top: int = 30) -> dict[str, Any]:
     )
     mutations = [str(record.get("protein_change", "")) for record in selected]
     return {
+        "category": category,
         "mutations": mutations,
         "diseases": diseases,
         "values": [
@@ -285,10 +320,25 @@ def therapy_rows(result: Payload | None) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for label, key in layer_keys:
         for record in _records(result, key):
+            therapy_type = record.get("therapy_type")
+            if (
+                not therapy_type
+                and str(record.get("source") or "").casefold() == "opentargets"
+            ):
+                therapy_type = record.get("description")
+            therapy_type_key = re.sub(
+                r"[^a-z0-9]+", "_", str(therapy_type or "").casefold()
+            ).strip("_")
+            canonical_smiles = record.get("canonical_smiles")
             rows.append(
                 {
                     "layer": label,
                     "therapy": record.get("therapy_name"),
+                    "therapy_type": therapy_type or "Not reported",
+                    "chembl_ids": ", ".join(_strings(record.get("chembl_ids"))),
+                    "canonical_smiles": canonical_smiles,
+                    "structure_ligand_ready": bool(canonical_smiles)
+                    and therapy_type_key == "small_molecule",
                     "status": record.get("therapy_status"),
                     "protein_change": record.get("protein_change"),
                     "molecular_profile": record.get("molecular_profile"),
@@ -303,6 +353,22 @@ def therapy_rows(result: Payload | None) -> list[dict[str, Any]]:
                 }
             )
     return rows
+
+
+def therapy_ligand_rows(result: Payload | None) -> list[dict[str, Any]]:
+    """Return unambiguous therapies with SMILES ready for future ligand inputs."""
+
+    return [
+        {
+            "therapy": row["therapy"],
+            "therapy_type": row["therapy_type"],
+            "canonical_smiles": row["canonical_smiles"],
+            "chembl_ids": row["chembl_ids"],
+            "source": row["source"],
+        }
+        for row in therapy_rows(result)
+        if row["structure_ligand_ready"]
+    ]
 
 
 def source_status_rows(*results: Payload | None) -> list[dict[str, Any]]:

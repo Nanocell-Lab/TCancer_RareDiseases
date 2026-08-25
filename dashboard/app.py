@@ -32,6 +32,10 @@ from rare_oncology_dashboard.export import (  # noqa: E402
     payload_to_json,
     records_to_csv,
 )
+from rare_oncology_dashboard.disease_categories import (  # noqa: E402
+    HEREDITARY_CANCER,
+    OTHER_INHERITED_DISEASE,
+)
 from rare_oncology_dashboard.figures import (  # noqa: E402
     alphamissense_figure,
     heatmap_figure,
@@ -77,6 +81,7 @@ from rare_oncology_dashboard.transforms import (  # noqa: E402
     string_graph_data,
     string_partner_rows,
     structure_variant_rows,
+    therapy_ligand_rows,
     therapy_rows,
 )
 
@@ -441,7 +446,7 @@ def _render_gene(
         [
             "Overview",
             "Mutations",
-            "Rare diseases",
+            "Inherited diseases",
             "AlphaMissense",
             "Therapies",
             "STRING partners",
@@ -486,20 +491,37 @@ def _render_gene(
         )
 
     with rare_tab:
-        rare_matrix = rare_disease_heatmap(result, top=30)
-        st.plotly_chart(
-            heatmap_figure(
-                rare_matrix,
-                row_key="diseases",
-                column_key="mutations",
-                title="Top 30 rare-disease mutation associations (★ shared with cancer)",
-                colorbar_title="ClinVar associations",
-            ),
-            width="stretch",
+        hereditary_cancer_tab, other_inherited_tab = st.tabs(
+            ["Hereditary cancer", "Other inherited diseases"]
         )
+        category_tabs = (
+            (hereditary_cancer_tab, HEREDITARY_CANCER),
+            (other_inherited_tab, OTHER_INHERITED_DISEASE),
+        )
+        for category_tab, category in category_tabs:
+            with category_tab:
+                rare_matrix = rare_disease_heatmap(
+                    result,
+                    top=30,
+                    category=category,
+                )
+                st.plotly_chart(
+                    heatmap_figure(
+                        rare_matrix,
+                        row_key="diseases",
+                        column_key="mutations",
+                        title=(
+                            f"Top 30 {category.casefold()} mutation associations "
+                            "(★ shared with somatic cancer observations)"
+                        ),
+                        colorbar_title="ClinVar associations",
+                    ),
+                    width="stretch",
+                )
         st.caption(
-            "Shared cancer mutations are selected before rare-only mutations; within each "
-            "group, disease-association abundance determines rank."
+            "Hereditary cancer is classified from explicit ClinVar condition wording and "
+            "kept separate from somatic GDC oncology observations. Within each inherited-"
+            "disease category, shared mutations rank before rare-only mutations."
         )
 
     with alpha_tab:
@@ -580,6 +602,7 @@ def _render_gene(
         _render_structures(
             gene,
             result,
+            therapy_result,
             analysis_snapshot.execution_id,
             master_path,
         )
@@ -622,6 +645,7 @@ def _render_gene(
 def _render_structures(
     gene: str,
     result: Mapping[str, Any],
+    therapy_result: Mapping[str, Any] | None,
     execution_id: int,
     master_path: Path,
 ) -> None:
@@ -630,6 +654,22 @@ def _render_structures(
         ["AlphaFold 3 / Boltz-2 inputs", "PDB wild-type vs variant"]
     )
     with input_tab:
+        ligand_candidates = therapy_ligand_rows(therapy_result)
+        if ligand_candidates:
+            with st.expander(
+                f"Structure-ready therapy molecules ({len(ligand_candidates)})"
+            ):
+                st.caption(
+                    "Canonical SMILES are retained for a future ligand-enabled "
+                    "AlphaFold 3/Boltz-2 workflow; current files still contain only "
+                    "the protein chain."
+                )
+                st.dataframe(ligand_candidates, width="stretch", hide_index=True)
+                _download_table(
+                    "Download ligand candidates",
+                    ligand_candidates,
+                    f"{gene.lower()}_therapy_ligands.csv",
+                )
         candidates = structure_variant_rows(result)
         by_change = {str(row["protein_change"]): row for row in candidates}
         options = list(by_change)
@@ -1013,7 +1053,7 @@ def _render_global_overview(catalog: SQLiteCatalog) -> None:
         )
         st.subheader("Which genes concentrate cross-domain evidence?")
         st.caption(
-            "Bubble size encodes rare-disease breadth; a dark outline marks at least "
+            "Bubble size encodes inherited-disease breadth; a dark outline marks at least "
             "one genomic-and-protein confirmed match. Therapy colors represent the "
             "highest available evidence tier and are not clinical recommendations."
         )
@@ -1039,7 +1079,12 @@ def _render_global_overview(catalog: SQLiteCatalog) -> None:
                         "shared_variants": row["shared_variant_count"],
                         "confirmed": row["confirmed_shared_count"],
                         "max_cancer_patients": row["max_variant_patient_count"],
-                        "rare_diseases": row["rare_disease_count"],
+                        "hereditary_cancer_diseases": row[
+                            "hereditary_cancer_disease_count"
+                        ],
+                        "other_inherited_diseases": row[
+                            "other_inherited_disease_count"
+                        ],
                         "actionability": row["actionability_tier"],
                     }
                     for row in ranked
@@ -1068,6 +1113,12 @@ def _render_global_overview(catalog: SQLiteCatalog) -> None:
                     "genes_with_shared": row["genes_with_shared_variants"],
                     "shared_variants": row["shared_variant_count"],
                     "confirmed": row["confirmed_shared_count"],
+                    "hereditary_cancer_diseases": row[
+                        "hereditary_cancer_disease_count"
+                    ],
+                    "other_inherited_diseases": row[
+                        "other_inherited_disease_count"
+                    ],
                     "variant_therapy_genes": row["genes_with_variant_therapy"],
                     "regulatory_genes": row["genes_with_active_regulatory"],
                     "trial_genes": row["genes_with_clinical_trials"],
@@ -1099,9 +1150,14 @@ def _render_global_overview(catalog: SQLiteCatalog) -> None:
             unsafe_allow_html=True,
         )
         st.subheader("Which disease contexts converge on the same protein families?")
-        disease_counts = tuple(
+        hereditary_cancer_counts = tuple(
             row
-            for row in overview.disease_family_counts
+            for row in overview.hereditary_cancer_family_counts
+            if _family_selected(row[1], filtered_families)
+        )
+        other_inherited_counts = tuple(
+            row
+            for row in overview.other_inherited_disease_family_counts
             if _family_selected(row[1], filtered_families)
         )
         project_counts = tuple(
@@ -1109,13 +1165,24 @@ def _render_global_overview(catalog: SQLiteCatalog) -> None:
             for row in overview.project_family_counts
             if _family_selected(row[1], filtered_families)
         )
-        disease_tab, project_tab = st.tabs(["Rare diseases", "Cancer projects"])
-        with disease_tab:
+        hereditary_cancer_tab, other_inherited_tab, project_tab = st.tabs(
+            ["Hereditary cancer", "Other inherited diseases", "Cancer projects"]
+        )
+        with hereditary_cancer_tab:
             st.plotly_chart(
                 global_convergence_figure(
-                    convergence_matrix(disease_counts, top_rows=20),
-                    title="Top rare diseases across protein families",
-                    row_title="Rare disease",
+                    convergence_matrix(hereditary_cancer_counts, top_rows=20),
+                    title="Hereditary cancer across protein families",
+                    row_title="Hereditary cancer condition",
+                ),
+                width="stretch",
+            )
+        with other_inherited_tab:
+            st.plotly_chart(
+                global_convergence_figure(
+                    convergence_matrix(other_inherited_counts, top_rows=20),
+                    title="Other inherited diseases across protein families",
+                    row_title="Inherited disease",
                 ),
                 width="stretch",
             )

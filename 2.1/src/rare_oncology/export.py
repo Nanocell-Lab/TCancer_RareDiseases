@@ -31,6 +31,8 @@ def write_csv(result: AnalysisResult, path: str | Path) -> Path:
         "gene",
         "protein_change",
         "diseases",
+        "hereditary_cancer_diseases",
+        "other_inherited_diseases",
         "orphanet_codes",
         "clinvar_accessions",
         "germline_classifications",
@@ -56,6 +58,12 @@ def write_csv(result: AnalysisResult, path: str | Path) -> Path:
                         "gene": item.gene,
                         "protein_change": item.protein_change,
                         "diseases": " | ".join(item.diseases),
+                        "hereditary_cancer_diseases": " | ".join(
+                            item.hereditary_cancer_diseases
+                        ),
+                        "other_inherited_diseases": " | ".join(
+                            item.other_inherited_diseases
+                        ),
                         "orphanet_codes": " | ".join(item.orphanet_codes),
                         "clinvar_accessions": " | ".join(
                             item.clinvar_accessions
@@ -188,6 +196,9 @@ def write_therapy_csv(result: TherapyResult, path: str | Path) -> Path:
         "molecular_profile",
         "therapy_name",
         "therapy_components",
+        "therapy_type",
+        "chembl_ids",
+        "canonical_smiles",
         "therapy_id",
         "therapy_status",
         "effect",
@@ -217,6 +228,7 @@ def write_therapy_csv(result: TherapyResult, path: str | Path) -> Path:
             row = {field: getattr(record, field) for field in fieldnames[:-1]}
             for field in (
                 "therapy_components",
+                "chembl_ids",
                 "disease_ids",
                 "disease_names",
             ):

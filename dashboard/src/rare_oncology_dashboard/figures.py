@@ -67,7 +67,8 @@ def global_gene_landscape_figure(
                     [
                         row.get("protein_family", ""),
                         row.get("confirmed_shared_count", 0),
-                        row.get("rare_disease_count", 0),
+                        row.get("hereditary_cancer_disease_count", 0),
+                        row.get("other_inherited_disease_count", 0),
                         row.get("cancer_project_count", 0),
                         row.get("source_coverage_count", 0),
                     ]
@@ -78,9 +79,10 @@ def global_gene_landscape_figure(
                     "<br>Shared variants: %{x}"
                     "<br>Confirmed shared: %{customdata[1]}"
                     "<br>Maximum cancer patients: %{y}"
-                    "<br>Rare diseases: %{customdata[2]}"
-                    "<br>Cancer projects: %{customdata[3]}"
-                    "<br>Sources represented: %{customdata[4]}"
+                    "<br>Hereditary cancer conditions: %{customdata[2]}"
+                    "<br>Other inherited diseases: %{customdata[3]}"
+                    "<br>Cancer projects: %{customdata[4]}"
+                    "<br>Sources represented: %{customdata[5]}"
                     "<extra>%{fullData.name}</extra>"
                 ),
             )

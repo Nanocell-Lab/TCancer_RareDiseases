@@ -103,6 +103,9 @@ for association in therapy_result.variant_therapy_evidence:
     print(
         association.protein_change,
         association.therapy_name,
+        association.therapy_type,
+        association.chembl_ids,
+        association.canonical_smiles,
         association.effect,
         association.disease_names,
     )
@@ -312,6 +315,13 @@ El resultado conserva tres colecciones independientes:
 - `trial_and_target_discovery`: ensayos de ClinicalTrials.gov y panorama
   gen-diana-fármaco de Open Targets.
 
+Cada asociación conserva `therapy_type` cuando la fuente lo declara. Para una
+terapia de un único componente identificada inequívocamente como molécula
+pequeña, los resultados también pueden incluir `chembl_ids` y
+`canonical_smiles`, obtenido desde ChEMBL. Las combinaciones no se colapsan en
+un único SMILES. Si ChEMBL no está disponible, la asociación terapéutica se
+conserva y la fuente queda marcada como parcial.
+
 Para restringir el análisis:
 
 ```python
@@ -450,7 +460,10 @@ rare-oncology EGFR \
 Se generan:
 
 - `results/egfr_report.json`: resultado completo, evidencia y estado de fuentes;
-- `results/egfr_shared.csv`: tabla lista para revisión.
+- `results/egfr_shared.csv`: tabla lista para revisión. Tanto JSON como CSV
+  conservan `hereditary_cancer_diseases` separado de
+  `other_inherited_diseases`, sin confundir predisposición germinal con las
+  observaciones oncológicas somáticas de GDC.
 - `results/egfr_evidence.csv`: registros por fuente y capa, sin colapsar sus
   significados clínicos.
 - `results/egfr_therapies.json` y `results/egfr_therapies.csv`: asociaciones
@@ -461,11 +474,15 @@ La capa regulatoria no hace scraping ni infiere aprobación. Cada fila debe
 incluir `gene` y `therapy_name`/`drug`; se aceptan, entre otras:
 
 ```text
-gene, source_record_id, therapy_name, therapy_id, protein_change,
-biomarker_text, disease_id, disease_name, therapy_status, effect,
-evidence_type, evidence_level, jurisdiction, citation_id, source_url,
-source_version, license
+gene, source_record_id, therapy_name, therapy_id, therapy_type, chembl_id,
+canonical_smiles, protein_change, biomarker_text, disease_id, disease_name,
+therapy_status, effect, evidence_type, evidence_level, jurisdiction,
+citation_id, source_url, source_version, license
 ```
+
+`therapy_type`, `chembl_id` y `canonical_smiles` son opcionales. Un SMILES
+aportado explícitamente sin tipo se clasifica como `small_molecule`; no se
+intenta inferir una estructura química desde el nombre comercial.
 
 `therapy_status` debe reflejar el documento original, por ejemplo
 `regulatory_approved`, `label_biomarker`, `accelerated_approval`, `withdrawn` u

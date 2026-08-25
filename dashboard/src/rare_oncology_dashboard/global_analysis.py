@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
 from .catalog import ExecutionSnapshot
+from .disease_categories import snapshot_disease_partition
 
 
 ACTIVE_REGULATORY_STATUSES = {
@@ -50,6 +51,8 @@ class GlobalGeneSummary:
     candidate_shared_count: int
     max_variant_patient_count: int
     rare_disease_count: int
+    hereditary_cancer_disease_count: int
+    other_inherited_disease_count: int
     cancer_project_count: int
     variant_therapy_count: int
     active_regulatory_count: int
@@ -79,6 +82,8 @@ class GlobalFamilySummary:
     genes_with_clinical_trials: int
     genes_with_mechanism_target: int
     rare_disease_count: int
+    hereditary_cancer_disease_count: int
+    other_inherited_disease_count: int
     cancer_project_count: int
 
     def to_dict(self) -> dict[str, Any]:
@@ -102,6 +107,8 @@ class GlobalOverview:
     gene_summaries: tuple[GlobalGeneSummary, ...]
     family_summaries: tuple[GlobalFamilySummary, ...]
     disease_family_counts: tuple[tuple[str, str, int], ...]
+    hereditary_cancer_family_counts: tuple[tuple[str, str, int], ...]
+    other_inherited_disease_family_counts: tuple[tuple[str, str, int], ...]
     project_family_counts: tuple[tuple[str, str, int], ...]
     caveat: str = (
         "Evidence layers are displayed separately: variant-specific evidence, "
@@ -128,6 +135,8 @@ def build_global_overview(
 
     genes: list[GlobalGeneSummary] = []
     disease_family: Counter[tuple[str, str]] = Counter()
+    hereditary_cancer_family: Counter[tuple[str, str]] = Counter()
+    other_inherited_family: Counter[tuple[str, str]] = Counter()
     project_family: Counter[tuple[str, str]] = Counter()
     matched_therapy_count = 0
     unmatched_therapy_gene_count = 0
@@ -172,6 +181,16 @@ def build_global_overview(
             for record in shared
             for disease in _strings(record.get("diseases"))
         }
+        hereditary_cancer_diseases = {
+            disease
+            for record in shared
+            for disease in snapshot_disease_partition(record)[0]
+        }
+        other_inherited_diseases = {
+            disease
+            for record in shared
+            for disease in snapshot_disease_partition(record)[1]
+        }
         projects = {
             project
             for record in shared
@@ -180,6 +199,11 @@ def build_global_overview(
         for record in shared:
             for disease in _strings(record.get("diseases")):
                 disease_family[(disease, assignment.protein_family)] += 1
+            hereditary_cancer, other_inherited = snapshot_disease_partition(record)
+            for disease in hereditary_cancer:
+                hereditary_cancer_family[(disease, assignment.protein_family)] += 1
+            for disease in other_inherited:
+                other_inherited_family[(disease, assignment.protein_family)] += 1
             for project in _strings(record.get("tcga_projects")):
                 project_family[(project, assignment.protein_family)] += 1
 
@@ -223,6 +247,8 @@ def build_global_overview(
                 candidate_shared_count=len(shared) - confirmed,
                 max_variant_patient_count=max_patients,
                 rare_disease_count=len(diseases),
+                hereditary_cancer_disease_count=len(hereditary_cancer_diseases),
+                other_inherited_disease_count=len(other_inherited_diseases),
                 cancer_project_count=len(projects),
                 variant_therapy_count=variant_therapy,
                 active_regulatory_count=active_regulatory,
@@ -238,7 +264,13 @@ def build_global_overview(
             )
         )
 
-    family_summaries = _family_summaries(genes, disease_family, project_family)
+    family_summaries = _family_summaries(
+        genes,
+        disease_family,
+        hereditary_cancer_family,
+        other_inherited_family,
+        project_family,
+    )
     return GlobalOverview(
         analysis_snapshot_count=len(analysis_snapshots),
         active_gene_count=len(genes),
@@ -255,6 +287,16 @@ def build_global_overview(
         disease_family_counts=tuple(
             (disease, family, count)
             for (disease, family), count in sorted(disease_family.items())
+        ),
+        hereditary_cancer_family_counts=tuple(
+            (disease, family, count)
+            for (disease, family), count in sorted(
+                hereditary_cancer_family.items()
+            )
+        ),
+        other_inherited_disease_family_counts=tuple(
+            (disease, family, count)
+            for (disease, family), count in sorted(other_inherited_family.items())
         ),
         project_family_counts=tuple(
             (project, family, count)
@@ -330,6 +372,8 @@ def convergence_matrix(
 def _family_summaries(
     genes: Sequence[GlobalGeneSummary],
     disease_family: Counter[tuple[str, str]],
+    hereditary_cancer_family: Counter[tuple[str, str]],
+    other_inherited_family: Counter[tuple[str, str]],
     project_family: Counter[tuple[str, str]],
 ) -> list[GlobalFamilySummary]:
     """Aggregate gene summaries without conflating therapy evidence layers."""
@@ -368,6 +412,16 @@ def _family_summaries(
                 rare_disease_count=sum(
                     1
                     for disease, item_family in disease_family
+                    if item_family == family
+                ),
+                hereditary_cancer_disease_count=sum(
+                    1
+                    for disease, item_family in hereditary_cancer_family
+                    if item_family == family
+                ),
+                other_inherited_disease_count=sum(
+                    1
+                    for disease, item_family in other_inherited_family
                     if item_family == family
                 ),
                 cancer_project_count=sum(

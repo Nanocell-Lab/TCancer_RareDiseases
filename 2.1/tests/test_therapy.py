@@ -6,6 +6,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from rare_oncology.chemical_metadata import ChemicalMetadata
 from rare_oncology.cli import _build_therapy_providers, build_parser
 from rare_oncology.export import write_therapy_csv, write_therapy_json
 from rare_oncology.models import AnalysisResult, SharedMutation, TherapyAssociation
@@ -40,6 +41,26 @@ class StubHttp:
     def post_json(self, url, payload):
         self.post_calls.append((url, payload))
         return next(self.posts)
+
+
+class StubChemicalResolver:
+    def __init__(self, metadata=(), error=None):
+        self.metadata = {item.chembl_id: item for item in metadata}
+        self.error = error
+        self.calls = []
+
+    def cache_identity(self):
+        return {"source": "chemical-fixture"}
+
+    def resolve(self, chembl_ids):
+        self.calls.append(chembl_ids)
+        if self.error is not None:
+            raise self.error
+        return {
+            chembl_id: self.metadata[chembl_id]
+            for chembl_id in chembl_ids
+            if chembl_id in self.metadata
+        }
 
 
 def analysis_result() -> AnalysisResult:
@@ -132,6 +153,10 @@ class CivicTests(unittest.TestCase):
                                     "id": 30,
                                     "name": "Exampletinib",
                                     "ncitId": "C123",
+                                    "myChemInfo": {
+                                        "chemblId": "CHEMBL123",
+                                        "chemblMoleculeType": "Small molecule",
+                                    },
                                 }
                             ],
                             "source": {
@@ -144,7 +169,13 @@ class CivicTests(unittest.TestCase):
             }
         }
         http = StubHttp(posts=[variants, evidence])
-        records = CivicTherapyProvider(http=http).collect(
+        resolver = StubChemicalResolver(
+            [ChemicalMetadata("CHEMBL123", "Small molecule", "CCO")]
+        )
+        records = CivicTherapyProvider(
+            http=http,
+            chemical_resolver=resolver,
+        ).collect(
             TherapyContext.from_analysis(analysis_result())
         )
         self.assertEqual(len(records), 1)
@@ -155,6 +186,10 @@ class CivicTests(unittest.TestCase):
         self.assertEqual(record.therapy_name, "Exampletinib")
         self.assertEqual(record.effect, "sensitivity_response")
         self.assertEqual(record.therapy_status, "curated_predictive_evidence")
+        self.assertEqual(record.therapy_type, "small_molecule")
+        self.assertEqual(record.chembl_ids, ("CHEMBL123",))
+        self.assertEqual(record.canonical_smiles, "CCO")
+        self.assertEqual(resolver.calls, [("CHEMBL123",)])
         requested_ids = [
             call[1]["variables"].get("variantId") for call in http.post_calls
         ]
@@ -246,6 +281,7 @@ class OncoKBTests(unittest.TestCase):
         self.assertEqual(sensitive.layer, VARIANT_THERAPY_EVIDENCE)
         self.assertEqual(sensitive.association_scope, "oncokb_protein_variant")
         self.assertEqual(sensitive.therapy_components, ("Alpha", "Beta"))
+        self.assertEqual(sensitive.therapy_type, "combination_drug")
         self.assertEqual(sensitive.therapy_id, "NCIT:C1 + NCIT:C2")
         self.assertEqual(sensitive.disease_ids, ("ONCOTREE_ID:78",))
         self.assertEqual(
@@ -253,6 +289,7 @@ class OncoKBTests(unittest.TestCase):
         )
         self.assertEqual(sensitive.effect, "sensitivity_response")
         self.assertEqual(resistant.effect, "resistance")
+        self.assertEqual(resistant.therapy_type, "drug")
         self.assertIsNone(sensitive.description)
         self.assertEqual(provider.source_version, "v7.4")
         self.assertEqual(
@@ -313,6 +350,7 @@ class ClinicalTrialsTests(unittest.TestCase):
         self.assertEqual(record.association_scope, "trial_variant_mention")
         self.assertEqual(record.therapy_status, "clinical_trial")
         self.assertEqual(record.trial_status, "RECRUITING")
+        self.assertEqual(record.therapy_type, "drug")
         self.assertNotEqual(record.therapy_status, "regulatory_approved")
         self.assertIn("eligibility", dict(record.details)["match_locations"])
         self.assertEqual(
@@ -487,14 +525,70 @@ class OpenTargetsTests(unittest.TestCase):
                 }
             }
         }
+        resolver = StubChemicalResolver(
+            [ChemicalMetadata("CHEMBL1", "Small molecule", "C1=CC=CC=C1")]
+        )
         records = OpenTargetsTherapyProvider(
-            http=StubHttp(posts=[search, drugs])
+            http=StubHttp(posts=[search, drugs]),
+            chemical_resolver=resolver,
         ).collect(TherapyContext.from_analysis(analysis_result()))
         self.assertEqual(len(records), 1)
         record = records[0]
         self.assertEqual(record.association_scope, "gene_target")
         self.assertEqual(record.therapy_status, "mechanism_target")
         self.assertEqual(record.evidence_level, "APPROVAL")
+        self.assertEqual(record.therapy_type, "small_molecule")
+        self.assertEqual(record.chembl_ids, ("CHEMBL1",))
+        self.assertEqual(record.canonical_smiles, "C1=CC=CC=C1")
+
+    def test_smiles_failure_preserves_therapy_and_marks_source_partial(self):
+        search = {
+            "data": {
+                "search": {
+                    "hits": [
+                        {
+                            "id": "ENSG00000146648",
+                            "name": "EGFR",
+                            "entity": "target",
+                        }
+                    ]
+                }
+            }
+        }
+        drugs = {
+            "data": {
+                "target": {
+                    "id": "ENSG00000146648",
+                    "drugAndClinicalCandidates": {
+                        "rows": [
+                            {
+                                "id": "row-1",
+                                "drug": {
+                                    "id": "CHEMBL1",
+                                    "name": "Targetinib",
+                                    "drugType": "Small molecule",
+                                },
+                                "diseases": [],
+                            }
+                        ]
+                    },
+                }
+            }
+        }
+        provider = OpenTargetsTherapyProvider(
+            http=StubHttp(posts=[search, drugs]),
+            chemical_resolver=StubChemicalResolver(error=OSError("offline")),
+        )
+
+        records, statuses = collect_therapy_associations(
+            TherapyContext.from_analysis(analysis_result()), [provider]
+        )
+
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0].therapy_type, "small_molecule")
+        self.assertIsNone(records[0].canonical_smiles)
+        self.assertEqual(statuses[0].status, "partial")
+        self.assertIn("SMILES", statuses[0].message or "")
 
 
 class RegulatoryTests(unittest.TestCase):
@@ -502,9 +596,10 @@ class RegulatoryTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "fda.csv"
             path.write_text(
-                "gene,record_id,drug,variant,indication,regulatory_status,label_url\n"
+                "gene,record_id,drug,variant,indication,regulatory_status,label_url,"
+                "therapy_type,chembl_id,canonical_smiles\n"
                 "EGFR,NDA-1,Labeltinib,p.L858R,Lung cancer,regulatory_approved,"
-                "https://example.test/label\n",
+                "https://example.test/label,Small molecule,chembl42,CCN\n",
                 encoding="utf-8",
             )
             records = RegulatoryTableTherapyProvider(
@@ -516,6 +611,9 @@ class RegulatoryTests(unittest.TestCase):
         self.assertEqual(record.therapy_status, "regulatory_approved")
         self.assertEqual(record.jurisdiction, "US")
         self.assertEqual(record.protein_change, "L858R")
+        self.assertEqual(record.therapy_type, "small_molecule")
+        self.assertEqual(record.chembl_ids, ("CHEMBL42",))
+        self.assertEqual(record.canonical_smiles, "CCN")
 
     def test_gene_is_required_per_regulatory_row(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -684,6 +782,9 @@ class PartitionAndExportTests(unittest.TestCase):
                         therapy_components=("\t=FORMULA()",),
                         therapy_status="label_biomarker",
                         retrieved_at="2026-08-11T00:00:00+00:00",
+                        therapy_type="small_molecule",
+                        chembl_ids=("CHEMBL42",),
+                        canonical_smiles="CCN",
                     )
                 ]
 
@@ -697,6 +798,12 @@ class PartitionAndExportTests(unittest.TestCase):
             with csv_path.open(encoding="utf-8") as handle:
                 row = next(csv.DictReader(handle))
         self.assertEqual(payload["association_count"], 1)
+        self.assertEqual(
+            payload["regulatory_therapy"][0]["canonical_smiles"], "CCN"
+        )
+        self.assertEqual(row["therapy_type"], "small_molecule")
+        self.assertEqual(row["chembl_ids"], "CHEMBL42")
+        self.assertEqual(row["canonical_smiles"], "CCN")
         self.assertTrue(row["therapy_name"].startswith("'\t="))
 
 
